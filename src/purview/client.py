@@ -2,19 +2,19 @@ from __future__ import annotations
 
 from typing import Any
 
-from purview_api.auth import PurviewAuthenticator
-from purview_api.config import PurviewConfig
-from purview_api.http_client import PurviewHttpClient
+from purview.auth import PurviewAuthenticator
+from purview.config import PurviewConfig
+from purview.http_client import PurviewHttpClient
 
-from purview_api.resources.business_domains import BusinessDomainsClient
-from purview_api.resources.glossary_terms import GlossaryTermsClient
-from purview_api.resources.cdes import CriticalDataElementsClient
-from purview_api.resources.data_products import DataProductsClient
-from purview_api.resources.relationships import RelationshipsClient
-from purview_api.resources.data_assets import DataAssetsClient
-from purview_api.navigator import PurviewNavigator
-from purview_api.resources.okrs import OkrsClient
-from purview_api.resources.policies import (
+from purview.resources.business_domains import BusinessDomainsClient
+from purview.resources.glossary_terms import GlossaryTermsClient
+from purview.resources.cdes import CriticalDataElementsClient
+from purview.resources.data_products import DataProductsClient
+from purview.resources.relationships import RelationshipsClient
+from purview.resources.data_assets import DataAssetsClient
+from purview.navigator import PurviewNavigator
+from purview.resources.okrs import OkrsClient
+from purview.resources.policies import (
     PoliciesClient,
 )
 

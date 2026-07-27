@@ -4,10 +4,10 @@ from typing import Any
 from urllib.parse import parse_qs, urlparse
 from uuid import uuid4
 
-from purview_api.models.business_domain import (
+from purview.models.business_domain import (
     BusinessDomain,
 )
-from purview_api.resources.base import (
+from purview.resources.base import (
     BaseResourceClient,
 )
 

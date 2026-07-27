@@ -5,7 +5,7 @@ from pprint import pprint
 
 from dotenv import load_dotenv
 
-from purview_api import PurviewClient, PurviewConfig
+from purview import PurviewClient, PurviewConfig
 
 
 load_dotenv()
@@ -112,7 +112,7 @@ with PurviewClient(
             relationship_type=RELATIONSHIP_TYPE,
             description=(
                 "Reverse-side relationship test through "
-                "purview-api SDK"
+                "purview SDK SDK"
             ),
         )
 

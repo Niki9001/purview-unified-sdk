@@ -3,8 +3,8 @@ from __future__ import annotations
 from typing import Any
 from uuid import UUID, uuid4
 
-from purview_api.models.data_product import DataProduct
-from purview_api.resources.base import BaseResourceClient
+from purview.models.data_product import DataProduct
+from purview.resources.base import BaseResourceClient
 
 
 class DataProductsClient(

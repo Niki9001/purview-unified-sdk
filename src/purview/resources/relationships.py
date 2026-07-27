@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from purview_api.http_client import PurviewHttpClient
-from purview_api.models.relationship import Relationship
+from purview.http_client import PurviewHttpClient
+from purview.models.relationship import Relationship
 
 
 class RelationshipsClient:

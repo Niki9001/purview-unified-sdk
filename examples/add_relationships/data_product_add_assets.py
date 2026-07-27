@@ -5,7 +5,7 @@ from pprint import pprint
 
 from dotenv import load_dotenv
 
-from purview_api import PurviewClient, PurviewConfig
+from purview import PurviewClient, PurviewConfig
 
 
 # =========================================================
@@ -130,7 +130,7 @@ with PurviewClient(
             entity_id=DATA_ASSET_ID,
             relationship_type="Related",
             description=(
-                "Data Asset added through purview-api SDK test"
+                "Data Asset added through purview SDK SDK test"
             ),
         )
 

@@ -3,8 +3,8 @@ from __future__ import annotations
 from typing import Any
 from uuid import uuid4
 
-from purview_api.models.glossary_term import GlossaryTerm
-from purview_api.resources.base import BaseResourceClient
+from purview.models.glossary_term import GlossaryTerm
+from purview.resources.base import BaseResourceClient
 
 
 class GlossaryTermsClient(

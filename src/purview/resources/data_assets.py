@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from purview_api.models.data_asset import DataAsset
-from purview_api.resources.base import BaseResourceClient
+from purview.models.data_asset import DataAsset
+from purview.resources.base import BaseResourceClient
 
 
 class DataAssetsClient(

@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any, Generic, TypeVar
 from uuid import UUID
 
-from purview_api.http_client import PurviewHttpClient
+from purview.http_client import PurviewHttpClient
 
 
 ModelType = TypeVar("ModelType")

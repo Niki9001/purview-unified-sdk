@@ -1,6 +1,6 @@
 from pprint import pprint
 
-from purview_api import PurviewClient, PurviewConfig
+from purview import PurviewClient, PurviewConfig
 
 import os
 

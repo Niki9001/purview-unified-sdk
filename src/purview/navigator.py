@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from purview_api.models.data_asset import DataAsset
-from purview_api.resources.data_assets import DataAssetsClient
-from purview_api.resources.relationships import RelationshipsClient
+from purview.models.data_asset import DataAsset
+from purview.resources.data_assets import DataAssetsClient
+from purview.resources.relationships import RelationshipsClient
 
 
 class PurviewNavigator:

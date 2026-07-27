@@ -5,7 +5,7 @@ from pprint import pprint
 
 from dotenv import load_dotenv
 
-from purview_api import PurviewClient, PurviewConfig
+from purview import PurviewClient, PurviewConfig
 
 
 # =========================================================
@@ -121,7 +121,7 @@ with PurviewClient(
             entity_id=GLOSSARY_TERM_ID,
             relationship_type="Related",
             description=(
-                "Glossary Term added through purview-api SDK test"
+                "Glossary Term added through purview SDK SDK test"
             ),
         )
 

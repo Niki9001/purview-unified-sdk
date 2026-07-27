@@ -3,9 +3,9 @@ requires = ["setuptools>=65"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "purview-api"
+name = "purview-unified-sdk"
 version = "0.1.0"
-description = "Reusable Python client for Microsoft Purview APIs"
+description = "A Python SDK for Microsoft Purview Unified Catalog"
 requires-python = ">=3.10"
 
 [tool.setuptools]

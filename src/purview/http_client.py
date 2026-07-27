@@ -4,8 +4,8 @@ from typing import Any
 
 import requests
 
-from purview_api.auth import PurviewAuthenticator
-from purview_api.config import PurviewConfig
+from purview.auth import PurviewAuthenticator
+from purview.config import PurviewConfig
 
 
 class PurviewHttpClient:

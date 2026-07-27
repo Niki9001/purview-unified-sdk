@@ -5,7 +5,7 @@ from pprint import pprint
 
 from dotenv import load_dotenv
 
-from purview_api import PurviewClient, PurviewConfig
+from purview import PurviewClient, PurviewConfig
 
 
 load_dotenv()
@@ -127,7 +127,7 @@ with PurviewClient(
             relationship_type=RELATIONSHIP_TYPE,
             description=(
                 "Data Asset linked to Data Column through "
-                "purview-api SDK test"
+                "purview SDK SDK test"
             ),
         )
 

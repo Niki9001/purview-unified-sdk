@@ -1,4 +1,4 @@
-from purview_api.config import PurviewConfig
+from purview.config import PurviewConfig
 import os
 
 from dotenv import load_dotenv
@@ -14,7 +14,7 @@ config = PurviewConfig(
 
 print("Tenant ID:", config.tenant_id)
 print("Endpoint:", config.endpoint)
-print("API version:", config.api_version)
+print("SDK version:", config.api_version)
 print("Catalog base URL:", config.catalog_base_url)
 print("Timeout:", config.request_timeout)
 print("Max retries:", config.max_retries)

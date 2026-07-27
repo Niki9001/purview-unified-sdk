@@ -20,7 +20,7 @@ class PurviewAuthenticator:
         tenant_id: str,
         *,
         username: str | None = None,
-        cache_name: str = "purview_api_token_cache",
+        cache_name: str = "purview_token_cache",
     ) -> None:
         if not tenant_id.strip():
             raise ValueError("tenant_id cannot be empty.")

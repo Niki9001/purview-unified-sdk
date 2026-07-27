@@ -3,10 +3,10 @@ from __future__ import annotations
 from typing import Any
 from uuid import uuid4
 
-from purview_api.models.critical_data_element import (
+from purview.models.critical_data_element import (
     CriticalDataElement,
 )
-from purview_api.resources.base import BaseResourceClient
+from purview.resources.base import BaseResourceClient
 
 
 class CriticalDataElementsClient(

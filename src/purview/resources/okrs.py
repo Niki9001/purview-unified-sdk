@@ -4,9 +4,9 @@ from datetime import date, datetime
 from typing import Any
 from uuid import uuid4
 
-from purview_api.models.key_result import KeyResult
-from purview_api.models.objective import Objective
-from purview_api.resources.base import BaseResourceClient
+from purview.models.key_result import KeyResult
+from purview.models.objective import Objective
+from purview.resources.base import BaseResourceClient
 
 
 class OkrsClient(

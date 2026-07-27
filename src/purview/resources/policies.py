@@ -3,8 +3,8 @@ from __future__ import annotations
 from copy import deepcopy
 from typing import Any
 
-from purview_api.http_client import PurviewHttpClient
-from purview_api.models.policy import Policy
+from purview.http_client import PurviewHttpClient
+from purview.models.policy import Policy
 
 
 class PoliciesClient:

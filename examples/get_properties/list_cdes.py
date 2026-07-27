@@ -1,4 +1,4 @@
-from purview_api import PurviewClient, PurviewConfig
+from purview import PurviewClient, PurviewConfig
 from dotenv import load_dotenv
 import os
 
