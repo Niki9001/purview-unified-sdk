@@ -1,0 +1,20 @@
+| Source Resource           | Target EntityType    |    Doc support       |  Validated  |
+| ------------------------- | -------------------- | :------------:       | :------: |
+| **Data Product**          | Term                 |        ✅            |     ✅    |
+|                           | Data Asset           |        ✅            |     ✅    |
+|                           | Objective            |        ✅            |     ✅    |
+|                           | File                 |        ✅            |     ⏳    |
+|                           | CDE                  |        ❌            | ❌(not directly) |
+|                           | Data Column          |        ❌            |     ❌   |
+| **Glossary Term**         | Data Asset           |        ✅            |     ✅    |
+|                           | Data Column          |        ✅            |     ✅    |
+|                           | CDE                  |        ✅            |     ✅    |
+| **Critical Data Element** | Term                 |        ✅            |     ✅    |
+|                           | Data Column          |        ✅            |     ✅    |
+|                           | Data Product         |        ❌            | ❌(not directly) |
+| **Data Asset**            | Data Product         |        ✅            |     ✅    |
+|                           | Term                 |        ✅            |     ✅    |
+|                           | Data Column          |        ✅            |     ✅    |
+| **Data Column**           | Data Asset           |        ✅            |     ✅    |
+|                           | Term                 |        ✅            |     ⏳    |
+|                           | CDE                  |  need to be vlaidated |     ⏳    |

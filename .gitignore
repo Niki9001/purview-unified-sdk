@@ -1,0 +1,42 @@
+# Virtual environment
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Package build files
+*.egg-info/
+build/
+dist/
+
+# IDE
+.vscode/
+.idea/
+
+# Test and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs
+*.log
+
+# Authentication and token files
+*auth_record*.json
+*token_cache*
+.env
+
+# Local input/output files
+*.csv
+*.xlsx
+*.xls
+
+# Operating system
+.DS_Store
+Thumbs.db
