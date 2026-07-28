@@ -1,0 +1,2542 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Python SDK documentation for Microsoft Purview Unified Catalog.
+">
+      
+      
+        <meta name="author" content="Xiaoning (Niki) Zheng">
+      
+      
+      
+        <link rel="prev" href="../glossary_terms/">
+      
+      
+        <link rel="next" href="../okrs/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Critical Data Elements (CDEs) - Purview Unified SDK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#critical-data-elements" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Purview Unified SDK" class="md-header__button md-logo" aria-label="Purview Unified SDK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Purview Unified SDK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Critical Data Elements (CDEs)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Niki9001/purview-unified-sdk" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Niki9001/purview-unified-sdk
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Purview Unified SDK" class="md-nav__button md-logo" aria-label="Purview Unified SDK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Purview Unified SDK
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Niki9001/purview-unified-sdk" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Niki9001/purview-unified-sdk
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft Purview Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../business_domains/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Domains
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_products/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Products
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary_terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary Terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Critical Data Elements (CDEs)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Critical Data Elements (CDEs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before You Begin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-critical-data-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a Critical Data Element
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a Critical Data Element">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-business-domain-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Business Domain ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cde-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CDE Values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#draft-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Draft Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returned-cde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Returned CDE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-critical-data-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List Critical Data Elements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="List Critical Data Elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-individual-cdes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing Individual CDEs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#converting-a-cde-to-a-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Converting a CDE to a Dictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-a-critical-data-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update a Critical Data Element
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Update a Critical Data Element">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partial-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partial Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-a-critical-data-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete a Critical Data Element
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Delete a Critical Data Element">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delete-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete Value
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#critical-data-element-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critical Data Element Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cde-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CDE Relationships
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-operation-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Operation Pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Issues
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#invalid-business-domain-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Invalid Business Domain ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-cdes-returned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No CDEs Returned
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cde-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CDE Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invalid-data-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Invalid Data Type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unauthorized-or-forbidden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unauthorized or Forbidden
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-operation-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete Operation Fails
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../okrs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objectives and Key Results (OKRs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../datamap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../relationships/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relationships
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api_reference/purview_client/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Purview Client
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api_reference/relationship_matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relationship Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before You Begin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-critical-data-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a Critical Data Element
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a Critical Data Element">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-business-domain-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Business Domain ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cde-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CDE Values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#draft-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Draft Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returned-cde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Returned CDE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-critical-data-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List Critical Data Elements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="List Critical Data Elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-individual-cdes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing Individual CDEs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#converting-a-cde-to-a-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Converting a CDE to a Dictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-a-critical-data-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update a Critical Data Element
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Update a Critical Data Element">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partial-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partial Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-a-critical-data-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete a Critical Data Element
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Delete a Critical Data Element">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delete-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete Value
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#critical-data-element-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critical Data Element Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cde-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CDE Relationships
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-operation-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Operation Pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Issues
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#invalid-business-domain-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Invalid Business Domain ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-cdes-returned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No CDEs Returned
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cde-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CDE Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invalid-data-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Invalid Data Type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unauthorized-or-forbidden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unauthorized or Forbidden
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-operation-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete Operation Fails
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../business_domains/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="critical-data-elements">Critical Data Elements</h1>
+<p>Critical Data Elements, commonly abbreviated as <strong>CDEs</strong>, identify data that is especially important to an organization.</p>
+<p>A CDE may represent information that is critical for regulatory reporting, financial operations, customer processes, risk management, analytics, or other business activities.</p>
+<p>In Microsoft Purview Unified Catalog, CDEs can be associated with Glossary Terms, Data Assets, and Data Columns to show where critical business information is defined and used.</p>
+<p>A typical relationship pattern is:</p>
+<div class="highlight"><pre><span></span><code>Business Domain
+        │
+        ▼
+Critical Data Element
+        │
+        ├──────────────► Glossary Term
+        │
+        └──────────────► Data Column
+</code></pre></div>
+<p>The Purview Unified SDK supports the following CDE operations:</p>
+<ul>
+<li>Create a Critical Data Element</li>
+<li>List Critical Data Elements</li>
+<li>Inspect CDE properties</li>
+<li>Update a Critical Data Element</li>
+<li>Delete a Critical Data Element</li>
+</ul>
+<hr />
+<h2 id="before-you-begin">Before You Begin</h2>
+<p>The examples in this guide assume that authentication and client configuration have already been completed.</p>
+<p>A configured client should be available as:</p>
+<div class="highlight"><pre><span></span><code><span class="n">client</span>
+</code></pre></div>
+<p>For complete setup instructions, see:</p>
+<ul>
+<li><a href="../../getting_started/authentication/">Authentication</a></li>
+<li><a href="../../getting_started/configuration/">Configuration</a></li>
+</ul>
+<p>Every CDE created by the example belongs to an existing Business Domain. You therefore need the ID of the target Business Domain before running the create example.</p>
+<hr />
+<h2 id="create-a-critical-data-element">Create a Critical Data Element</h2>
+<p>Use <code>client.cdes.create()</code> to create a new Critical Data Element.</p>
+<h3 id="required-business-domain-id">Required Business Domain ID</h3>
+<p>The create example reads the Business Domain ID from the <code>.env</code> file:</p>
+<div class="highlight"><pre><span></span><code><span class="n">DOMAIN_ID</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span>
+    <span class="s2">&quot;PURVIEW_DOMAIN_ID&quot;</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Add the value to <code>.env</code>:</p>
+<div class="highlight"><pre><span></span><code>PURVIEW_DOMAIN_ID=11111111-1111-1111-1111-111111111111
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Replace the Example Domain ID</p>
+<p>The value shown above is a masked example.</p>
+<p>Replace it with the ID of an existing Business Domain in your own Microsoft Purview environment.</p>
+<p>Using an invalid or inaccessible Domain ID will cause the create operation to fail.</p>
+</div>
+<hr />
+<h3 id="cde-values">CDE Values</h3>
+<div class="highlight"><pre><span></span><code><span class="n">CDE_NAME</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;SDK Test Critical Data Element&quot;</span>
+<span class="p">)</span>
+
+<span class="n">CDE_DESCRIPTION</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;Critical Data Element created by the &quot;</span>
+    <span class="s2">&quot;Purview Unified SDK example.&quot;</span>
+<span class="p">)</span>
+
+<span class="n">CDE_DATA_TYPE</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;TEXT&quot;</span>
+<span class="p">)</span>
+
+<span class="n">CDE_STATUS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;DRAFT&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>The example creates the CDE with:</p>
+<ul>
+<li>Data type: <code>TEXT</code></li>
+<li>Status: <code>DRAFT</code></li>
+<li>An existing Business Domain ID</li>
+<li>A name and description</li>
+</ul>
+<hr />
+<h3 id="create-example">Create Example</h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_cde</span><span class="p">(</span><span class="n">client</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a Microsoft Purview Critical Data Element.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Critical Data Element - Create&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name:&quot;</span><span class="p">,</span> <span class="n">CDE_NAME</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Domain ID:&quot;</span><span class="p">,</span> <span class="n">DOMAIN_ID</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data type:&quot;</span><span class="p">,</span> <span class="n">CDE_DATA_TYPE</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Status:&quot;</span><span class="p">,</span> <span class="n">CDE_STATUS</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+    <span class="n">cde</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cdes</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">CDE_NAME</span><span class="p">,</span>
+        <span class="n">domain_id</span><span class="o">=</span><span class="n">DOMAIN_ID</span><span class="p">,</span>
+        <span class="n">data_type</span><span class="o">=</span><span class="n">CDE_DATA_TYPE</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="n">CDE_DESCRIPTION</span><span class="p">,</span>
+        <span class="n">status</span><span class="o">=</span><span class="n">CDE_STATUS</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Created Critical Data Element&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ID:&quot;</span><span class="p">,</span> <span class="n">cde</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name:&quot;</span><span class="p">,</span> <span class="n">cde</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Description:&quot;</span><span class="p">,</span> <span class="n">cde</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Status:&quot;</span><span class="p">,</span> <span class="n">cde</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data type:&quot;</span><span class="p">,</span> <span class="n">cde</span><span class="o">.</span><span class="n">data_type</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Domain ID:&quot;</span><span class="p">,</span> <span class="n">cde</span><span class="o">.</span><span class="n">domain_id</span><span class="p">)</span>
+</code></pre></div>
+<p>Call the function after creating the authenticated client:</p>
+<div class="highlight"><pre><span></span><code><span class="n">create_cde</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+</code></pre></div>
+<p>The complete runnable example is available at:</p>
+<div class="highlight"><pre><span></span><code>examples/cdes/create_cde.py
+</code></pre></div>
+<p>The example creates a CDE in an existing Business Domain and prints the returned ID, name, description, status, data type, and Domain ID. :contentReference[oaicite:0]{index=0}</p>
+<hr />
+<h3 id="draft-status">Draft Status</h3>
+<p>The example creates the CDE with:</p>
+<div class="highlight"><pre><span></span><code><span class="n">status</span><span class="o">=</span><span class="s2">&quot;DRAFT&quot;</span>
+</code></pre></div>
+<p>Using <code>DRAFT</code> is appropriate when the CDE definition is still under review.</p>
+<p>Before publishing or approving a CDE, confirm that:</p>
+<ul>
+<li>Its business meaning is clear</li>
+<li>Its data type is correct</li>
+<li>Its Domain assignment is correct</li>
+<li>Its related Glossary Terms are appropriate</li>
+<li>Its associated Data Columns have been validated</li>
+<li>Its governance ownership has been reviewed</li>
+</ul>
+<hr />
+<h3 id="data-type">Data Type</h3>
+<p>The example uses:</p>
+<div class="highlight"><pre><span></span><code><span class="n">data_type</span><span class="o">=</span><span class="s2">&quot;TEXT&quot;</span>
+</code></pre></div>
+<p>The data type describes the type of business information represented by the CDE.</p>
+<p>Use values supported by your Microsoft Purview Unified Catalog environment and API version.</p>
+<p>Do not assume that arbitrary data type strings will be accepted.</p>
+<hr />
+<h3 id="returned-cde">Returned CDE</h3>
+<p>The create operation returns a Critical Data Element model object.</p>
+<p>Common returned properties include:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cde</span><span class="o">.</span><span class="n">id</span>
+<span class="n">cde</span><span class="o">.</span><span class="n">name</span>
+<span class="n">cde</span><span class="o">.</span><span class="n">description</span>
+<span class="n">cde</span><span class="o">.</span><span class="n">status</span>
+<span class="n">cde</span><span class="o">.</span><span class="n">data_type</span>
+<span class="n">cde</span><span class="o">.</span><span class="n">domain_id</span>
+</code></pre></div>
+<p>The <code>domain_id</code> identifies the Business Domain containing the CDE.</p>
+<p>Save the returned CDE ID if the resource will later be updated, deleted, or associated with other resources:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cde_id</span> <span class="o">=</span> <span class="n">cde</span><span class="o">.</span><span class="n">id</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Created CDE ID:&quot;</span><span class="p">,</span>
+    <span class="n">cde_id</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="list-critical-data-elements">List Critical Data Elements</h2>
+<p>Use <code>client.cdes.query_models()</code> to retrieve CDEs as model objects.</p>
+<div class="highlight"><pre><span></span><code><span class="n">cdes</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cdes</span><span class="o">.</span><span class="n">query_models</span><span class="p">()</span>
+</code></pre></div>
+<p>Unlike some other resource clients that use <code>list()</code>, the CDE example uses <code>query_models()</code>.</p>
+<p>The method returns a Python list containing Critical Data Element model objects. :contentReference[oaicite:1]{index=1}</p>
+<hr />
+<h3 id="list-example">List Example</h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">list_cdes</span><span class="p">(</span><span class="n">client</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    List Microsoft Purview Critical Data Elements</span>
+<span class="sd">    and inspect the first returned object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cdes</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cdes</span><span class="o">.</span><span class="n">query_models</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">cdes</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;CDE count:&quot;</span><span class="p">,</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">cdes</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">cdes</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No CDEs were returned.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">first_cde</span> <span class="o">=</span> <span class="n">cdes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">first_cde</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">first_cde</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">first_cde</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">first_cde</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">first_cde</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">first_cde</span><span class="o">.</span><span class="n">data_type</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">first_cde</span><span class="o">.</span><span class="n">domain_id</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">first_cde</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+</code></pre></div>
+<p>Call the function using:</p>
+<div class="highlight"><pre><span></span><code><span class="n">list_cdes</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+</code></pre></div>
+<p>The complete runnable example is available at:</p>
+<div class="highlight"><pre><span></span><code>examples/get_properties/list_cdes.py
+</code></pre></div>
+<p>The supplied example confirms that <code>query_models()</code> returns a list, prints the number of returned CDEs, inspects the first model object, and converts it to a dictionary. :contentReference[oaicite:2]{index=2}</p>
+<hr />
+<h3 id="accessing-individual-cdes">Accessing Individual CDEs</h3>
+<p>Because <code>cdes</code> is a list, you can iterate over all returned CDEs:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">cde</span> <span class="ow">in</span> <span class="n">cdes</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ID:&quot;</span><span class="p">,</span> <span class="n">cde</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name:&quot;</span><span class="p">,</span> <span class="n">cde</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Description:&quot;</span><span class="p">,</span>
+        <span class="n">cde</span><span class="o">.</span><span class="n">description</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Status:&quot;</span><span class="p">,</span> <span class="n">cde</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Data type:&quot;</span><span class="p">,</span>
+        <span class="n">cde</span><span class="o">.</span><span class="n">data_type</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Domain ID:&quot;</span><span class="p">,</span>
+        <span class="n">cde</span><span class="o">.</span><span class="n">domain_id</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</code></pre></div>
+<p>You can also access an individual item by index:</p>
+<div class="highlight"><pre><span></span><code><span class="n">first_cde</span> <span class="o">=</span> <span class="n">cdes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">first_cde</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_cde</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_cde</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Check the List Before Accessing an Item</p>
+<p>Do not access <code>cdes[0]</code> before confirming that the list contains at least one item.</p>
+<p>If no CDEs are returned, Python will raise:</p>
+<div class="highlight"><pre><span></span><code>IndexError: list index out of range
+</code></pre></div>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="ow">not</span> <span class="n">cdes</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No CDEs were returned.&quot;</span><span class="p">)</span>
+    <span class="k">return</span>
+</code></pre></div>
+</div>
+<hr />
+<h3 id="converting-a-cde-to-a-dictionary">Converting a CDE to a Dictionary</h3>
+<p>Critical Data Element model objects provide a <code>to_dict()</code> method:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cde_dict</span> <span class="o">=</span> <span class="n">cdes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cde_dict</span><span class="p">)</span>
+</code></pre></div>
+<p>This is useful when:</p>
+<ul>
+<li>Inspecting the complete response</li>
+<li>Exporting CDE metadata</li>
+<li>Serializing model data</li>
+<li>Comparing CDE properties</li>
+<li>Preparing results for reporting or validation</li>
+</ul>
+<hr />
+<h2 id="update-a-critical-data-element">Update a Critical Data Element</h2>
+<p>Use <code>client.cdes.update()</code> to update an existing CDE.</p>
+<p>The operation requires the unique CDE ID.</p>
+<hr />
+<h3 id="update-values">Update Values</h3>
+<div class="highlight"><pre><span></span><code><span class="n">CDE_ID</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;22222222-2222-2222-2222-222222222222&quot;</span>
+<span class="p">)</span>
+
+<span class="n">NEW_CDE_NAME</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;SDK Test Critical Data Element Updated&quot;</span>
+<span class="p">)</span>
+
+<span class="n">NEW_DESCRIPTION</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;Critical Data Element updated by the &quot;</span>
+    <span class="s2">&quot;Purview Unified SDK example.&quot;</span>
+<span class="p">)</span>
+
+<span class="n">NEW_DATA_TYPE</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;TEXT&quot;</span>
+<span class="p">)</span>
+
+<span class="n">NEW_STATUS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;DRAFT&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Replace the Example CDE ID</p>
+<p>The value shown for <code>CDE_ID</code> is a masked example.</p>
+<p>Replace it with the ID of an existing Critical Data Element in your own Microsoft Purview environment.</p>
+<p>Using an invalid or nonexistent ID will cause the update operation to fail.</p>
+</div>
+<p>You may store the ID in <code>.env</code>:</p>
+<div class="highlight"><pre><span></span><code>PURVIEW_CDE_ID=22222222-2222-2222-2222-222222222222
+</code></pre></div>
+<p>Then load it using:</p>
+<div class="highlight"><pre><span></span><code><span class="n">CDE_ID</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span>
+    <span class="s2">&quot;PURVIEW_CDE_ID&quot;</span>
+<span class="p">]</span>
+</code></pre></div>
+<hr />
+<h3 id="update-example">Update Example</h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">update_cde</span><span class="p">(</span><span class="n">client</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Update an existing Microsoft Purview</span>
+<span class="sd">    Critical Data Element.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Critical Data Element - Update&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CDE ID:&quot;</span><span class="p">,</span> <span class="n">CDE_ID</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New name:&quot;</span><span class="p">,</span> <span class="n">NEW_CDE_NAME</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New description:&quot;</span><span class="p">,</span> <span class="n">NEW_DESCRIPTION</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New data type:&quot;</span><span class="p">,</span> <span class="n">NEW_DATA_TYPE</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New status:&quot;</span><span class="p">,</span> <span class="n">NEW_STATUS</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+    <span class="n">cde</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cdes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+        <span class="n">cde_id</span><span class="o">=</span><span class="n">CDE_ID</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">NEW_CDE_NAME</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="n">NEW_DESCRIPTION</span><span class="p">,</span>
+        <span class="n">data_type</span><span class="o">=</span><span class="n">NEW_DATA_TYPE</span><span class="p">,</span>
+        <span class="n">status</span><span class="o">=</span><span class="n">NEW_STATUS</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Updated Critical Data Element&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ID:&quot;</span><span class="p">,</span> <span class="n">cde</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name:&quot;</span><span class="p">,</span> <span class="n">cde</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Description:&quot;</span><span class="p">,</span> <span class="n">cde</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Status:&quot;</span><span class="p">,</span> <span class="n">cde</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data type:&quot;</span><span class="p">,</span> <span class="n">cde</span><span class="o">.</span><span class="n">data_type</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Domain ID:&quot;</span><span class="p">,</span> <span class="n">cde</span><span class="o">.</span><span class="n">domain_id</span><span class="p">)</span>
+</code></pre></div>
+<p>Call the function using:</p>
+<div class="highlight"><pre><span></span><code><span class="n">update_cde</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+</code></pre></div>
+<p>The complete runnable example is available at:</p>
+<div class="highlight"><pre><span></span><code>examples/cdes/update_cde.py
+</code></pre></div>
+<p>The example updates the CDE name, description, data type, and status, then prints the returned properties. :contentReference[oaicite:3]{index=3}</p>
+<hr />
+<h3 id="partial-updates">Partial Updates</h3>
+<p>Only provide the fields that should be changed.</p>
+<p>For example, to update only the description:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cde</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cdes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+    <span class="n">cde_id</span><span class="o">=</span><span class="n">CDE_ID</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="p">(</span>
+        <span class="s2">&quot;Updated CDE description.&quot;</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>To update only the status:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cde</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cdes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+    <span class="n">cde_id</span><span class="o">=</span><span class="n">CDE_ID</span><span class="p">,</span>
+    <span class="n">status</span><span class="o">=</span><span class="s2">&quot;DRAFT&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>To update the name and data type:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cde</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cdes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+    <span class="n">cde_id</span><span class="o">=</span><span class="n">CDE_ID</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Updated Critical Field&quot;</span><span class="p">,</span>
+    <span class="n">data_type</span><span class="o">=</span><span class="s2">&quot;TEXT&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Do not replace existing values with empty strings unless that behavior has been verified for the selected Microsoft Purview API version.</p>
+<hr />
+<h2 id="delete-a-critical-data-element">Delete a Critical Data Element</h2>
+<p>Use <code>client.cdes.delete()</code> to delete an existing CDE.</p>
+<p>The operation requires the unique CDE ID.</p>
+<hr />
+<h3 id="delete-value">Delete Value</h3>
+<div class="highlight"><pre><span></span><code><span class="n">CDE_ID</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;22222222-2222-2222-2222-222222222222&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Replace the Example CDE ID</p>
+<p>Replace the masked value with the ID of the Critical Data Element that you intend to delete.</p>
+<p>Carefully verify the ID before running the operation.</p>
+</div>
+<hr />
+<h3 id="delete-example">Delete Example</h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">delete_cde</span><span class="p">(</span><span class="n">client</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Delete an existing Microsoft Purview</span>
+<span class="sd">    Critical Data Element.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Critical Data Element - Delete&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CDE ID:&quot;</span><span class="p">,</span> <span class="n">CDE_ID</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+    <span class="n">client</span><span class="o">.</span><span class="n">cdes</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span>
+        <span class="n">CDE_ID</span>
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Critical Data Element Deleted&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Deleted CDE ID:&quot;</span><span class="p">,</span>
+        <span class="n">CDE_ID</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div>
+<p>Call the function using:</p>
+<div class="highlight"><pre><span></span><code><span class="n">delete_cde</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+</code></pre></div>
+<p>The complete runnable example is available at:</p>
+<div class="highlight"><pre><span></span><code>examples/cdes/delete_cde.py
+</code></pre></div>
+<p>The example deletes the specified CDE and prints the deleted CDE ID after the request completes. :contentReference[oaicite:4]{index=4}</p>
+<div class="admonition danger">
+<p class="admonition-title">Deletion Is Destructive</p>
+<p>Deleting a Critical Data Element is a destructive operation.</p>
+<p>Before deleting a CDE:</p>
+<ul>
+<li>Confirm that the CDE ID is correct.</li>
+<li>Review all existing Glossary Term relationships.</li>
+<li>Review linked Data Columns.</li>
+<li>Review linked Data Assets.</li>
+<li>Check whether the CDE appears indirectly under a Data Product.</li>
+<li>Test deletion in a non-production environment whenever possible.</li>
+</ul>
+<p>Removing a CDE may affect the governance context shown for related resources.</p>
+</div>
+<hr />
+<h2 id="critical-data-element-model">Critical Data Element Model</h2>
+<p>Create and update operations return a Critical Data Element model object. The list operation returns a list of these objects.</p>
+<p>Common properties demonstrated by the examples include:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>Unique identifier of the CDE.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>Display name of the CDE.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>Business description.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>Current lifecycle or publication status.</td>
+</tr>
+<tr>
+<td><code>data_type</code></td>
+<td>Data type assigned to the CDE.</td>
+</tr>
+<tr>
+<td><code>domain_id</code></td>
+<td>ID of the containing Business Domain.</td>
+</tr>
+<tr>
+<td><code>to_dict()</code></td>
+<td>Converts the model object into a dictionary.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">cde</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cde</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cde</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cde</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cde</span><span class="o">.</span><span class="n">data_type</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cde</span><span class="o">.</span><span class="n">domain_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cde</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+</code></pre></div>
+<p>Not every endpoint necessarily returns every property. Use <code>to_dict()</code> when you need to inspect the complete response.</p>
+<hr />
+<h2 id="cde-relationships">CDE Relationships</h2>
+<p>Critical Data Elements can be connected to other governance and technical resources.</p>
+<p>Common supported relationship scenarios include:</p>
+<ul>
+<li>CDE → Glossary Term</li>
+<li>CDE → Data Column</li>
+<li>Glossary Term → CDE</li>
+</ul>
+<p>A direct Data Product-to-CDE operation has not been identified.</p>
+<p>Instead, the CDE may appear automatically under a Data Product when:</p>
+<ol>
+<li>The CDE is linked to a Data Asset or Data Column.</li>
+<li>The same Data Asset is linked to the Data Product.</li>
+<li>Microsoft Purview infers and displays the CDE association.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>Critical Data Element
+        │
+        ▼
+Data Asset or Data Column
+        │
+        ▼
+Data Product
+</code></pre></div>
+<p>This is an indirect relationship rather than a direct Data Product-to-CDE API operation.</p>
+<p>For the complete tested support matrix, see:</p>
+<p><a href="../../api_reference/relationship_matrix/">Relationship Matrix</a></p>
+<hr />
+<h2 id="complete-operation-pattern">Complete Operation Pattern</h2>
+<p>A typical CDE workflow is:</p>
+<div class="highlight"><pre><span></span><code>Create a Business Domain
+        ↓
+Create a CDE in that Domain
+        ↓
+Record the returned CDE ID
+        ↓
+List and inspect the CDE
+        ↓
+Link it to Glossary Terms or Data Columns
+        ↓
+Validate the related Data Map resources
+        ↓
+Update the CDE definition or status
+        ↓
+Delete it when it is no longer required
+</code></pre></div>
+<p>The returned CDE ID is required for later operations, including:</p>
+<ul>
+<li>Updating the CDE</li>
+<li>Deleting the CDE</li>
+<li>Linking it to a Glossary Term</li>
+<li>Linking it to a Data Column</li>
+<li>Validating indirect Data Product visibility</li>
+</ul>
+<hr />
+<h2 id="example-files">Example Files</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>examples/cdes/create_cde.py</code></td>
+<td>Creates a CDE and prints its returned properties.</td>
+</tr>
+<tr>
+<td><code>examples/get_properties/list_cdes.py</code></td>
+<td>Lists CDEs and inspects the first returned model object.</td>
+</tr>
+<tr>
+<td><code>examples/cdes/update_cde.py</code></td>
+<td>Updates an existing CDE.</td>
+</tr>
+<tr>
+<td><code>examples/cdes/delete_cde.py</code></td>
+<td>Deletes an existing CDE.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="common-issues">Common Issues</h2>
+<h3 id="invalid-business-domain-id">Invalid Business Domain ID</h3>
+<p>A create operation can fail when the supplied <code>domain_id</code>:</p>
+<ul>
+<li>Does not exist</li>
+<li>Belongs to another environment</li>
+<li>Was copied incorrectly</li>
+<li>Is inaccessible to the authenticated identity</li>
+</ul>
+<p>Verify the Business Domain ID before retrying.</p>
+<h3 id="no-cdes-returned">No CDEs Returned</h3>
+<p>The query may return an empty list:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cdes</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cdes</span><span class="o">.</span><span class="n">query_models</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">cdes</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No CDEs were returned.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>This may mean that no CDEs exist or that the authenticated identity cannot access them.</p>
+<h3 id="cde-not-found">CDE Not Found</h3>
+<p>Update and delete operations can fail when the supplied ID:</p>
+<ul>
+<li>Does not exist</li>
+<li>Has already been deleted</li>
+<li>Belongs to another environment</li>
+<li>Was entered incorrectly</li>
+</ul>
+<h3 id="invalid-data-type">Invalid Data Type</h3>
+<p>The selected <code>data_type</code> may not be accepted by the current Microsoft Purview API.</p>
+<p>Confirm that the value is supported before retrying.</p>
+<h3 id="unauthorized-or-forbidden">Unauthorized or Forbidden</h3>
+<p>If the request returns <code>401 Unauthorized</code> or <code>403 Forbidden</code>, first verify that the SDK is using the Microsoft Purview <strong>Unified Catalog</strong> endpoint rather than a classic Purview Data Catalog endpoint.</p>
+<p>Then verify that the authenticated user, service principal, or managed identity has permission to manage Critical Data Elements.</p>
+<h3 id="delete-operation-fails">Delete Operation Fails</h3>
+<p>A CDE may be connected to Glossary Terms, Data Columns, Data Assets, or indirectly displayed under Data Products.</p>
+<p>Review those relationships before retrying deletion.</p>
+<hr />
+<h2 id="next-steps">Next Steps</h2>
+<p>After creating and managing Critical Data Elements, continue with the Data Map guide.</p>
+<p><strong>Next:</strong> <a href="../okrs/">Objectives and Key Results (OKRs) →</a></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 28, 2026 17:38:24 UTC">July 28, 2026</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

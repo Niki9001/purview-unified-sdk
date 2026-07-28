@@ -1,0 +1,3010 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Python SDK documentation for Microsoft Purview Unified Catalog.
+">
+      
+      
+        <meta name="author" content="Xiaoning (Niki) Zheng">
+      
+      
+      
+        <link rel="prev" href="../policies/">
+      
+      
+        <link rel="next" href="../relationships/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Data Map - Purview Unified SDK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-map" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Purview Unified SDK" class="md-header__button md-logo" aria-label="Purview Unified SDK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Purview Unified SDK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Map
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Niki9001/purview-unified-sdk" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Niki9001/purview-unified-sdk
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Purview Unified SDK" class="md-nav__button md-logo" aria-label="Purview Unified SDK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Purview Unified SDK
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Niki9001/purview-unified-sdk" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Niki9001/purview-unified-sdk
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft Purview Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../business_domains/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Domains
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_products/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Products
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary_terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary Terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Critical Data Elements (CDEs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../okrs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objectives and Key Results (OKRs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Map
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before You Begin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-asset-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Asset ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-a-data-asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get a Data Asset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieval-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retrieval Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retrieval Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extended-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extended Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lineage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lineage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-asset-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Asset Information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-the-returned-model-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspect the Returned Model Type
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source Information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unified-catalog-id-and-source-asset-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unified Catalog ID and Source Asset ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema Information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-data-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List Data Columns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#print-all-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Print All Columns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#find-a-column-by-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Find a Column by Name
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#column-lookup-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Column Lookup Result
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-the-model-to-a-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert the Model to a Dictionary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-fields-and-raw-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Fields and Raw Response
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Fields and Raw Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model View
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-api-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raw API View
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-raw-api-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspect Raw API Keys
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-the-raw-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspect the Raw Schema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-asset-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Asset Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-assets-and-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Assets and Relationships
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-columns-and-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Columns and Relationships
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Issues
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-asset-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Asset Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#empty-column-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Empty Column List
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Column Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-optional-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Missing Optional Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-schema-is-not-a-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raw Schema Is Not a List
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incorrect-id-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incorrect ID Type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unauthorized-or-forbidden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unauthorized or Forbidden
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-inspection-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Inspection Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example File
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../relationships/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relationships
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api_reference/purview_client/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Purview Client
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api_reference/relationship_matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relationship Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before You Begin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-asset-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Asset ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-a-data-asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get a Data Asset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieval-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retrieval Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retrieval Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extended-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extended Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lineage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lineage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-asset-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Asset Information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-the-returned-model-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspect the Returned Model Type
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source Information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unified-catalog-id-and-source-asset-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unified Catalog ID and Source Asset ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema Information
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-data-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List Data Columns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#print-all-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Print All Columns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#find-a-column-by-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Find a Column by Name
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#column-lookup-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Column Lookup Result
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-the-model-to-a-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert the Model to a Dictionary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-fields-and-raw-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Fields and Raw Response
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Fields and Raw Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model View
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-api-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raw API View
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-raw-api-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspect Raw API Keys
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-the-raw-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspect the Raw Schema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-asset-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Asset Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-assets-and-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Assets and Relationships
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-columns-and-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Columns and Relationships
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Issues
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-asset-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Asset Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#empty-column-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Empty Column List
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Column Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-optional-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Missing Optional Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-schema-is-not-a-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raw Schema Is Not a List
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incorrect-id-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incorrect ID Type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unauthorized-or-forbidden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unauthorized or Forbidden
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-inspection-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Inspection Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example File
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../business_domains/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="data-map">Data Map</h1>
+<p>Microsoft Purview Data Map contains technical metadata about discovered and registered data resources.</p>
+<p>In the Purview Unified SDK, Data Map resources are represented primarily through:</p>
+<ul>
+<li>Data Assets</li>
+<li>Data Columns</li>
+<li>Source-system metadata</li>
+<li>Schema information</li>
+<li>Raw API responses</li>
+</ul>
+<p>The Data Map client allows you to retrieve a Data Asset by ID and inspect its technical properties through a Python model.</p>
+<p>A typical resource structure is:</p>
+<div class="highlight"><pre><span></span><code>Source System
+      │
+      ▼
+ Data Asset
+      │
+      ▼
+ Data Column
+</code></pre></div>
+<p>Data Map resources may also participate in governance relationships:</p>
+<div class="highlight"><pre><span></span><code>Data Product
+      │
+      ▼
+ Data Asset
+      │
+      ▼
+ Data Column
+      │
+      ▼
+Critical Data Element
+</code></pre></div>
+<p>This guide focuses on retrieving and inspecting Data Map resources.</p>
+<p>For creating relationships between Data Map and governance resources, see <a href="../relationships/">Relationships</a>.</p>
+<hr />
+<h2 id="before-you-begin">Before You Begin</h2>
+<p>The examples in this guide assume that authentication and client configuration have already been completed.</p>
+<p>A configured client should be available as:</p>
+<div class="highlight"><pre><span></span><code><span class="n">client</span>
+</code></pre></div>
+<p>For complete setup instructions, see:</p>
+<ul>
+<li><a href="../../getting_started/authentication/">Authentication</a></li>
+<li><a href="../../getting_started/configuration/">Configuration</a></li>
+</ul>
+<p>You must also know the Unified Catalog ID of the Data Asset that you want to retrieve.</p>
+<hr />
+<h2 id="data-asset-id">Data Asset ID</h2>
+<p>The complete example reads the Data Asset ID from the <code>.env</code> file:</p>
+<div class="highlight"><pre><span></span><code><span class="n">DATA_ASSET_ID</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span>
+    <span class="s2">&quot;PURVIEW_DATA_ASSET_ID&quot;</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Add the value to <code>.env</code>:</p>
+<div class="highlight"><pre><span></span><code>PURVIEW_DATA_ASSET_ID=11111111-1111-1111-1111-111111111111
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Replace the Example Data Asset ID</p>
+<p>Replace the example value with the ID of an existing Data Asset in your Microsoft Purview environment.</p>
+<p>The Data Asset ID must belong to the same Microsoft Purview environment used by the authenticated client.</p>
+</div>
+<hr />
+<h2 id="get-a-data-asset">Get a Data Asset</h2>
+<p>Use <code>client.data_assets.get()</code> to retrieve a single Data Asset.</p>
+<div class="highlight"><pre><span></span><code><span class="n">asset</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">data_assets</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="n">DATA_ASSET_ID</span><span class="p">,</span>
+    <span class="n">include_extended_properties</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">include_lineage</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>The method returns a Data Asset model rather than an unprocessed dictionary.</p>
+<p>You can therefore access properties directly:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">asset</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">asset</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">asset</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="retrieval-options">Retrieval Options</h2>
+<p>The example passes two optional arguments:</p>
+<div class="highlight"><pre><span></span><code><span class="n">include_extended_properties</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">include_lineage</span><span class="o">=</span><span class="kc">False</span>
+</code></pre></div>
+<h3 id="extended-properties">Extended Properties</h3>
+<div class="highlight"><pre><span></span><code><span class="n">include_extended_properties</span><span class="o">=</span><span class="kc">True</span>
+</code></pre></div>
+<p>Requests additional Data Asset properties from the API.</p>
+<p>These properties may include technical source information, schema details, and other metadata returned for the selected asset.</p>
+<h3 id="lineage">Lineage</h3>
+<div class="highlight"><pre><span></span><code><span class="n">include_lineage</span><span class="o">=</span><span class="kc">False</span>
+</code></pre></div>
+<p>The example does not request lineage information.</p>
+<p>Set this according to the behavior supported by your SDK and Microsoft Purview environment.</p>
+<hr />
+<h2 id="basic-asset-information">Basic Asset Information</h2>
+<p>The Data Asset model exposes common Unified Catalog properties:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Object type:&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">asset</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ID:&quot;</span><span class="p">,</span> <span class="n">asset</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name:&quot;</span><span class="p">,</span> <span class="n">asset</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Unified Catalog type:&quot;</span><span class="p">,</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Description:&quot;</span><span class="p">,</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">description</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Domain ID:&quot;</span><span class="p">,</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">domain_id</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Open URL:&quot;</span><span class="p">,</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">open_in_url</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Common properties include:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>Unique Unified Catalog ID of the Data Asset.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>Display name of the asset.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>Unified Catalog resource type.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>Description of the asset.</td>
+</tr>
+<tr>
+<td><code>domain_id</code></td>
+<td>ID of the Business Domain associated with the asset.</td>
+</tr>
+<tr>
+<td><code>open_in_url</code></td>
+<td>URL that may be used to open the asset in Microsoft Purview.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="inspect-the-returned-model-type">Inspect the Returned Model Type</h2>
+<p>You can inspect the Python object returned by the SDK:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Object type:&quot;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="p">(</span><span class="n">asset</span><span class="p">),</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>This helps confirm that the SDK returned a model object instead of a raw JSON dictionary.</p>
+<p>Because the result is a model, properties can be accessed using attribute notation:</p>
+<div class="highlight"><pre><span></span><code><span class="n">asset</span><span class="o">.</span><span class="n">name</span>
+<span class="n">asset</span><span class="o">.</span><span class="n">description</span>
+<span class="n">asset</span><span class="o">.</span><span class="n">domain_id</span>
+</code></pre></div>
+<p>Instead of:</p>
+<div class="highlight"><pre><span></span><code><span class="n">asset</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="n">asset</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span>
+<span class="n">asset</span><span class="p">[</span><span class="s2">&quot;domainId&quot;</span><span class="p">]</span>
+</code></pre></div>
+<hr />
+<h2 id="source-information">Source Information</h2>
+<p>Data Assets may contain metadata describing the source platform and source object.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Source asset type:&quot;</span><span class="p">,</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">source_type</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Source system type:&quot;</span><span class="p">,</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">source_system_type</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Source account:&quot;</span><span class="p">,</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">account_name</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Source asset ID:&quot;</span><span class="p">,</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">source_asset_id</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;FQN:&quot;</span><span class="p">,</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">fqn</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Qualified name:&quot;</span><span class="p">,</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">qualified_name</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Common source properties include:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source_type</code></td>
+<td>Source asset type returned by Microsoft Purview.</td>
+</tr>
+<tr>
+<td><code>source_system_type</code></td>
+<td>Type of source system containing the asset.</td>
+</tr>
+<tr>
+<td><code>account_name</code></td>
+<td>Source account or connection name.</td>
+</tr>
+<tr>
+<td><code>source_asset_id</code></td>
+<td>Identifier of the object in the source system.</td>
+</tr>
+<tr>
+<td><code>fqn</code></td>
+<td>Fully qualified name of the source asset.</td>
+</tr>
+<tr>
+<td><code>qualified_name</code></td>
+<td>Qualified name returned for the asset.</td>
+</tr>
+</tbody>
+</table>
+<p>These values can help distinguish between:</p>
+<div class="highlight"><pre><span></span><code>Unified Catalog identity
+</code></pre></div>
+<p>and:</p>
+<div class="highlight"><pre><span></span><code>Source-system identity
+</code></pre></div>
+<p>The two identifiers may not be the same.</p>
+<hr />
+<h2 id="unified-catalog-id-and-source-asset-id">Unified Catalog ID and Source Asset ID</h2>
+<p>A Data Asset may expose more than one identifier.</p>
+<div class="highlight"><pre><span></span><code>Unified Catalog ID
+        │
+        └── asset.id
+
+Source-system ID
+        │
+        └── asset.source_asset_id
+</code></pre></div>
+<p>Use <code>asset.id</code> when an SDK operation requires the Unified Catalog Data Asset ID.</p>
+<p>Use source-system identifiers only when the specific API or operation explicitly requires them.</p>
+<div class="admonition warning">
+<p class="admonition-title">Do Not Mix Resource IDs</p>
+<p>A Unified Catalog object ID and a source-system asset ID may identify the same logical asset in different systems, but they are not necessarily interchangeable.</p>
+<p>Relationship operations generally require the Unified Catalog resource ID expected by the API.</p>
+</div>
+<hr />
+<h2 id="system-information">System Information</h2>
+<p>The Data Asset model also exposes system-managed properties:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Created at:&quot;</span><span class="p">,</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">created_at</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Last modified at:&quot;</span><span class="p">,</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">last_modified_at</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Provisioning state:&quot;</span><span class="p">,</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">provisioning_state</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Is migrated:&quot;</span><span class="p">,</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">is_migrated</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Common properties include:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>created_at</code></td>
+<td>Date and time when the asset was created or registered.</td>
+</tr>
+<tr>
+<td><code>last_modified_at</code></td>
+<td>Date and time when the asset was last modified.</td>
+</tr>
+<tr>
+<td><code>provisioning_state</code></td>
+<td>Current provisioning state returned by the API.</td>
+</tr>
+<tr>
+<td><code>is_migrated</code></td>
+<td>Indicates whether the asset is marked as migrated.</td>
+</tr>
+</tbody>
+</table>
+<p>The exact values depend on the API response for the selected asset.</p>
+<hr />
+<h2 id="schema-information">Schema Information</h2>
+<p>A Data Asset may include schema information describing its columns.</p>
+<p>The number of columns is available through:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Column count:&quot;</span><span class="p">,</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">column_count</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>The returned columns can be accessed through:</p>
+<div class="highlight"><pre><span></span><code><span class="n">asset</span><span class="o">.</span><span class="n">columns</span>
+</code></pre></div>
+<hr />
+<h2 id="list-data-columns">List Data Columns</h2>
+<p>The example prints the first ten columns:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">asset</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">column</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">column</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">): &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">column</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+</code></pre></div>
+<p>Each column entry may contain values such as:</p>
+<div class="highlight"><pre><span></span><code><span class="n">column</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+<span class="n">column</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span>
+<span class="n">column</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Using <code>.get()</code> avoids raising a <code>KeyError</code> when an optional value is missing.</p>
+<hr />
+<h2 id="print-all-columns">Print All Columns</h2>
+<p>To print every returned column:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">asset</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Name:&quot;</span><span class="p">,</span>
+        <span class="n">column</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Type:&quot;</span><span class="p">,</span>
+        <span class="n">column</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Description:&quot;</span><span class="p">,</span>
+        <span class="n">column</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</code></pre></div>
+<p>For assets with large schemas, consider limiting the output:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">asset</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="o">...</span>
+</code></pre></div>
+<hr />
+<h2 id="find-a-column-by-name">Find a Column by Name</h2>
+<p>The Data Asset model provides a convenience method for locating a column by name:</p>
+<div class="highlight"><pre><span></span><code><span class="n">column</span> <span class="o">=</span> <span class="n">asset</span><span class="o">.</span><span class="n">get_column</span><span class="p">(</span>
+    <span class="s2">&quot;BUKRS&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Then check whether the column was found:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">column</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Column BUKRS was not found.&quot;</span>
+    <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">pprint</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+</code></pre></div>
+<p>This avoids writing a manual loop each time a specific column is needed.</p>
+<p>Without the convenience method, the equivalent logic would be similar to:</p>
+<div class="highlight"><pre><span></span><code><span class="n">column</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+    <span class="p">(</span>
+        <span class="n">item</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">asset</span><span class="o">.</span><span class="n">columns</span>
+        <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;BUKRS&quot;</span>
+    <span class="p">),</span>
+    <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Using <code>asset.get_column()</code> is clearer and easier to reuse.</p>
+<hr />
+<h2 id="column-lookup-result">Column Lookup Result</h2>
+<p><code>asset.get_column()</code> returns:</p>
+<ul>
+<li>The matching column information when found</li>
+<li><code>None</code> when no matching column is found</li>
+</ul>
+<p>Always check for <code>None</code> before accessing the result:</p>
+<div class="highlight"><pre><span></span><code><span class="n">column</span> <span class="o">=</span> <span class="n">asset</span><span class="o">.</span><span class="n">get_column</span><span class="p">(</span>
+    <span class="s2">&quot;BUKRS&quot;</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="n">column</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="n">column</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Column Name Matching</p>
+<p>Supply the column name expected by the Data Asset model.</p>
+<p>A column may not be found when the spelling, formatting, or letter case differs from the value stored in Microsoft Purview.</p>
+</div>
+<hr />
+<h2 id="convert-the-model-to-a-dictionary">Convert the Model to a Dictionary</h2>
+<p>Use <code>asset.to_dict()</code> to convert the known model fields into a Python dictionary:</p>
+<div class="highlight"><pre><span></span><code><span class="n">asset_dictionary</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">pprint</span><span class="p">(</span>
+    <span class="n">asset_dictionary</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>This is useful when:</p>
+<ul>
+<li>Exporting asset information</li>
+<li>Serializing results</li>
+<li>Logging model properties</li>
+<li>Passing data to another Python function</li>
+<li>Comparing multiple assets</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="model-fields-and-raw-response">Model Fields and Raw Response</h2>
+<p>The SDK provides two different views of the Data Asset:</p>
+<div class="highlight"><pre><span></span><code>Data Asset model
+        │
+        └── asset.to_dict()
+
+Raw API response
+        │
+        └── asset.raw
+</code></pre></div>
+<p>These views serve different purposes.</p>
+<h3 id="model-view">Model View</h3>
+<div class="highlight"><pre><span></span><code><span class="n">asset</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</code></pre></div>
+<p>Provides the fields recognized and exposed by the SDK model.</p>
+<h3 id="raw-api-view">Raw API View</h3>
+<div class="highlight"><pre><span></span><code><span class="n">asset</span><span class="o">.</span><span class="n">raw</span>
+</code></pre></div>
+<p>Provides access to the original response data retained by the model.</p>
+<p>This can be useful when Microsoft Purview returns fields that have not yet been added as formal SDK properties.</p>
+<hr />
+<h2 id="inspect-raw-api-keys">Inspect Raw API Keys</h2>
+<p>To see which top-level keys were returned by the API:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pprint</span><span class="p">(</span>
+    <span class="nb">list</span><span class="p">(</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>This can help during:</p>
+<ul>
+<li>API investigation</li>
+<li>SDK development</li>
+<li>Troubleshooting</li>
+<li>Model expansion</li>
+<li>Microsoft Purview response changes</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Prefer Model Properties for Normal Use</p>
+<p>Use model properties such as <code>asset.name</code>, <code>asset.columns</code>, and <code>asset.domain_id</code> for ordinary SDK code.</p>
+<p>Use <code>asset.raw</code> mainly when investigating fields that are not yet represented by the model.</p>
+<p>Raw response structures may be less convenient and may change independently of the SDK model interface.</p>
+</div>
+<hr />
+<h2 id="inspect-the-raw-schema">Inspect the Raw Schema</h2>
+<p>The raw response may contain a <code>schema</code> value:</p>
+<div class="highlight"><pre><span></span><code><span class="n">raw_schema</span> <span class="o">=</span> <span class="n">asset</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s2">&quot;schema&quot;</span><span class="p">,</span>
+    <span class="p">[],</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Validate the value before using it:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_schema</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Raw schema count:&quot;</span><span class="p">,</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">raw_schema</span><span class="p">),</span>
+    <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Raw schema is not a list.&quot;</span>
+    <span class="p">)</span>
+</code></pre></div>
+<p>This check prevents code from incorrectly assuming that the API always returns a list.</p>
+<hr />
+<h2 id="complete-example">Complete Example</h2>
+<p>The following example retrieves one Data Asset and displays its primary technical metadata.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">purview</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PurviewClient</span><span class="p">,</span>
+    <span class="n">PurviewConfig</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+
+<span class="n">DATA_ASSET_ID</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span>
+    <span class="s2">&quot;PURVIEW_DATA_ASSET_ID&quot;</span>
+<span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieve and inspect a Microsoft Purview</span>
+<span class="sd">    Data Asset.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">PurviewConfig</span><span class="p">(</span>
+        <span class="n">tenant_id</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span>
+            <span class="s2">&quot;PURVIEW_TENANT_ID&quot;</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">PurviewClient</span><span class="p">(</span>
+        <span class="n">config</span><span class="p">,</span>
+        <span class="n">username</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span>
+            <span class="s2">&quot;PURVIEW_USERNAME&quot;</span>
+        <span class="p">],</span>
+    <span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">asset</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">data_assets</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">DATA_ASSET_ID</span><span class="p">,</span>
+            <span class="n">include_extended_properties</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">include_lineage</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Basic asset information&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Object type:&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="p">(</span><span class="n">asset</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;ID:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Name:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Unified Catalog type:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Description:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">description</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Domain ID:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">domain_id</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Open URL:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">open_in_url</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Source information&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Source asset type:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">source_type</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Source system type:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">source_system_type</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Source account:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">account_name</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Source asset ID:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">source_asset_id</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;FQN:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">fqn</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Qualified name:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">qualified_name</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;System information&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Created at:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">created_at</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Last modified at:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">last_modified_at</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Provisioning state:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">provisioning_state</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Is migrated:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">is_migrated</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Schema information&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Column count:&quot;</span><span class="p">,</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">column_count</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First 10 columns:&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">asset</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">column</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">column</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">): &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">column</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Column lookup test&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+
+    <span class="n">column</span> <span class="o">=</span> <span class="n">asset</span><span class="o">.</span><span class="n">get_column</span><span class="p">(</span>
+        <span class="s2">&quot;BUKRS&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">column</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;Column BUKRS was not found.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">pprint</span><span class="p">(</span>
+            <span class="n">column</span><span class="p">,</span>
+            <span class="n">sort_dicts</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Known model fields&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+
+    <span class="n">pprint</span><span class="p">(</span>
+        <span class="n">asset</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span>
+        <span class="n">sort_dicts</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Raw API keys&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+
+    <span class="n">pprint</span><span class="p">(</span>
+        <span class="nb">list</span><span class="p">(</span>
+            <span class="n">asset</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Raw schema count&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+
+    <span class="n">raw_schema</span> <span class="o">=</span> <span class="n">asset</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="s2">&quot;schema&quot;</span><span class="p">,</span>
+        <span class="p">[],</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_schema</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;Raw schema count:&quot;</span><span class="p">,</span>
+            <span class="nb">len</span><span class="p">(</span><span class="n">raw_schema</span><span class="p">),</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;Raw schema is not a list.&quot;</span>
+        <span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<p>The original runnable example retrieves a Data Asset, prints its catalog and source metadata, examines its columns, tests <code>get_column()</code>, converts the model with <code>to_dict()</code>, and inspects the retained raw response. :contentReference[oaicite:0]{index=0}</p>
+<hr />
+<h2 id="data-asset-model">Data Asset Model</h2>
+<p>The example demonstrates the following Data Asset properties and methods:</p>
+<table>
+<thead>
+<tr>
+<th>Property or Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>Unified Catalog Data Asset ID.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>Asset name.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>Unified Catalog resource type.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>Asset description.</td>
+</tr>
+<tr>
+<td><code>domain_id</code></td>
+<td>Associated Business Domain ID.</td>
+</tr>
+<tr>
+<td><code>open_in_url</code></td>
+<td>URL for opening the asset.</td>
+</tr>
+<tr>
+<td><code>source_type</code></td>
+<td>Source asset type.</td>
+</tr>
+<tr>
+<td><code>source_system_type</code></td>
+<td>Source platform type.</td>
+</tr>
+<tr>
+<td><code>account_name</code></td>
+<td>Source account name.</td>
+</tr>
+<tr>
+<td><code>source_asset_id</code></td>
+<td>Source-system asset ID.</td>
+</tr>
+<tr>
+<td><code>fqn</code></td>
+<td>Fully qualified name.</td>
+</tr>
+<tr>
+<td><code>qualified_name</code></td>
+<td>Qualified asset name.</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>Creation timestamp.</td>
+</tr>
+<tr>
+<td><code>last_modified_at</code></td>
+<td>Last modification timestamp.</td>
+</tr>
+<tr>
+<td><code>provisioning_state</code></td>
+<td>Provisioning state.</td>
+</tr>
+<tr>
+<td><code>is_migrated</code></td>
+<td>Migration indicator.</td>
+</tr>
+<tr>
+<td><code>column_count</code></td>
+<td>Number of returned columns.</td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>Returned schema column collection.</td>
+</tr>
+<tr>
+<td><code>get_column(name)</code></td>
+<td>Finds a column by name.</td>
+</tr>
+<tr>
+<td><code>to_dict()</code></td>
+<td>Converts known model fields to a dictionary.</td>
+</tr>
+<tr>
+<td><code>raw</code></td>
+<td>Retained raw API response.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="data-assets-and-relationships">Data Assets and Relationships</h2>
+<p>A Data Asset can participate in relationships with other Microsoft Purview resources.</p>
+<p>Examples include:</p>
+<div class="highlight"><pre><span></span><code>Data Product
+      │
+      ▼
+ Data Asset
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Glossary Term
+      │
+      ▼
+ Data Asset
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Data Asset
+      │
+      ▼
+ Data Column
+</code></pre></div>
+<p>The Data Map guide explains how to retrieve and inspect these technical resources.</p>
+<p>The Relationships guide explains how to create and validate associations between them.</p>
+<p>See <a href="../relationships/">Relationships</a>.</p>
+<hr />
+<h2 id="data-columns-and-relationships">Data Columns and Relationships</h2>
+<p>A Data Column can also participate in governance relationships:</p>
+<div class="highlight"><pre><span></span><code>Glossary Term
+      │
+      ▼
+ Data Column
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Critical Data Element
+      │
+      ▼
+ Data Column
+</code></pre></div>
+<p>When creating Data Column relationships, use the Unified Catalog Data Column ID required by the relationship API.</p>
+<p>Do not assume that a nested source-system column identifier is interchangeable with the outer Unified Catalog object ID.</p>
+<hr />
+<h2 id="common-issues">Common Issues</h2>
+<h3 id="data-asset-not-found">Data Asset Not Found</h3>
+<p>Verify that:</p>
+<ul>
+<li>The Data Asset ID exists.</li>
+<li>The ID belongs to the correct Microsoft Purview environment.</li>
+<li>The authenticated identity can view the asset.</li>
+<li>The ID is the Unified Catalog Data Asset ID expected by the operation.</li>
+</ul>
+<hr />
+<h3 id="empty-column-list">Empty Column List</h3>
+<p>An asset may return no columns when:</p>
+<ul>
+<li>No schema information is available.</li>
+<li>Extended properties were not returned.</li>
+<li>The selected asset type does not expose columns.</li>
+<li>The authenticated identity cannot access the full metadata.</li>
+<li>The source metadata has not been populated.</li>
+</ul>
+<p>Check:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">column_count</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="nb">len</span><span class="p">(</span><span class="n">asset</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="column-not-found">Column Not Found</h3>
+<p><code>asset.get_column()</code> returns <code>None</code> when the requested column cannot be found.</p>
+<div class="highlight"><pre><span></span><code><span class="n">column</span> <span class="o">=</span> <span class="n">asset</span><span class="o">.</span><span class="n">get_column</span><span class="p">(</span>
+    <span class="s2">&quot;COLUMN_NAME&quot;</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="n">column</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Column was not found.&quot;</span>
+    <span class="p">)</span>
+</code></pre></div>
+<p>Verify the column name against:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">asset</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="missing-optional-properties">Missing Optional Properties</h3>
+<p>Some properties may be <code>None</code> when the API does not return a value.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span>
+    <span class="n">asset</span><span class="o">.</span><span class="n">description</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>may display:</p>
+<div class="highlight"><pre><span></span><code>None
+</code></pre></div>
+<p>This does not necessarily indicate an SDK error.</p>
+<p>It may mean that the property is not populated for the selected Data Asset.</p>
+<hr />
+<h3 id="raw-schema-is-not-a-list">Raw Schema Is Not a List</h3>
+<p>Do not assume the raw <code>schema</code> field always contains a list.</p>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">raw_schema</span> <span class="o">=</span> <span class="n">asset</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s2">&quot;schema&quot;</span><span class="p">,</span>
+    <span class="p">[],</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raw_schema</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+    <span class="o">...</span>
+</code></pre></div>
+<hr />
+<h3 id="incorrect-id-type">Incorrect ID Type</h3>
+<p>Do not confuse:</p>
+<div class="highlight"><pre><span></span><code>asset.id
+</code></pre></div>
+<p>with:</p>
+<div class="highlight"><pre><span></span><code>asset.source_asset_id
+</code></pre></div>
+<p>The first is the Unified Catalog asset ID exposed by the SDK model.</p>
+<p>The second identifies the object in its originating source context.</p>
+<p>Use the identifier required by the specific SDK operation.</p>
+<hr />
+<h3 id="unauthorized-or-forbidden">Unauthorized or Forbidden</h3>
+<p>If the request returns <code>401 Unauthorized</code> or <code>403 Forbidden</code>, first verify that the SDK is using the Microsoft Purview <strong>Unified Catalog</strong> endpoint.</p>
+<p>Then verify that the authenticated user, service principal, or managed identity has permission to read the selected Data Asset.</p>
+<hr />
+<h2 id="recommended-inspection-workflow">Recommended Inspection Workflow</h2>
+<p>Use the following workflow when investigating a Data Asset:</p>
+<div class="highlight"><pre><span></span><code>Obtain the Unified Catalog Data Asset ID
+        ↓
+Retrieve the Data Asset
+        ↓
+Inspect basic properties
+        ↓
+Inspect source information
+        ↓
+Review schema and columns
+        ↓
+Look up specific columns
+        ↓
+Inspect the model dictionary
+        ↓
+Use the raw response only when needed
+</code></pre></div>
+<hr />
+<h2 id="example-file">Example File</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>examples/get_properties/get_data_asset.py</code></td>
+<td>Retrieves and inspects a Data Asset, its source metadata, schema, model fields, and raw API response.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue with the Relationships guide to connect Data Assets and Data Columns to governance resources.</p>
+<p><strong>Next:</strong> <a href="../relationships/">Relationships →</a></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 28, 2026 17:38:24 UTC">July 28, 2026</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
