@@ -187,22 +187,41 @@ Using an incorrect Tenant ID may result in:
 - Authorization errors
 - Accessing the wrong Microsoft Purview tenant
 
-## Common Authentication Errors
+## Common Authentication and Configuration Errors
 
 ### Invalid Tenant ID
 
-Verify that the Tenant ID is correct and that your account belongs to the specified Microsoft Entra tenant.
+Verify that the Tenant ID is correct and that your account belongs to the specified Microsoft Entra ID tenant.
+
+---
 
 ### Invalid Username
 
-Verify that the username matches the Microsoft account (typically your corporate email or assigned UPN) used to access Microsoft Purview.
+Verify that the username matches the Microsoft account (typically your corporate email address or assigned User Principal Name (UPN)) used to access Microsoft Purview.
+
+---
+
+### Incorrect API Endpoint
+
+The SDK is designed to work with the **Microsoft Purview Unified Catalog API**. 
+
+Using endpoints from the legacy **Azure Purview** APIs or other Microsoft Purview services may result in errors such as:
+
+- `Unauthorized`
+- `404 Not Found`
+- `Resource not found`
+- `Unsupported API`
+- `Invalid request`
+
+Ensure that the endpoint configured for your application corresponds to the Microsoft Purview Unified Catalog environment.
+
+---
 
 ### Permission Denied
 
 Authentication may succeed even if authorization fails.
 
-Ensure that your account has the required Microsoft Purview permissions for the requested operation.
-
+Ensure that your Microsoft account has the required permissions to perform the requested operation in Microsoft Purview Unified Catalog.
 ## Using environment variables
 
 ```python
