@@ -154,6 +154,7 @@ app = msal.PublicClientApplication(
 
 The SDK can then be configured to use the `PublicClientApplication` instance or its token cache, depending on your application's authentication architecture.
 ```
+---
 ## First-Time Authentication
 
 The first time the SDK is used, you may be prompted to sign in to your Microsoft account.
