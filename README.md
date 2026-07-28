@@ -340,18 +340,67 @@ Typical operations:
 
 ---
 
-## Relationships
+## Relationship Support and Validation
 
-Manage relationships between supported Purview resources.
+The table below summarizes the relationship types currently reviewed during SDK development, including whether the relationship is documented by Microsoft and whether it has been validated through SDK testing.
 
-Examples include:
+| Source Resource | Target Resource | Documentation Support | Validation Status |
+|-----------------|-----------------|:---------------------:|:-----------------:|
+| **Data Product** | Glossary Term | ✅ | ✅ |
+| | Data Asset | ✅ | ✅ |
+| | Objective | ✅ | ✅ |
+| | File | ✅ | ✅ |
+| | Critical Data Element (CDE) | ❌ | ❌ (Not directly supported) |
+| | Data Column | ❌ | ❌ |
+| **Glossary Term** | Data Asset | ✅ | ✅ |
+| | Data Column | ✅ | ✅ |
+| | Critical Data Element (CDE) | ✅ | ✅ |
+| **Critical Data Element (CDE)** | Glossary Term | ✅ | ✅ |
+| | Data Column | ✅ | ✅ |
+| | Data Product | ❌ | ❌ (Not directly supported) |
+| **Data Asset** | Data Product | ✅ | ✅ |
+| | Glossary Term | ✅ | ✅ |
+| | Data Column | ✅ | ✅ |
+| **Data Column** | Data Asset | ✅ | ✅ |
+| | Glossary Term | ✅ | ✅ |
+| | Critical Data Element (CDE) | ✅ | ✅ |
 
-- Data Product ↔ Business Domain
-- Data Product ↔ Objective
-- Objective ↔ Key Result
-- Data Asset ↔ Data Product
-- Glossary Term ↔ Data Asset
+### Validation Status
 
+- ✅ **Validated** – The relationship has been successfully tested using the SDK.
+- ⏳ **Pending Validation** – The relationship is documented or expected to be supported but has not yet been fully validated.
+- ❌ **Not Supported** – Microsoft Purview does not provide a supported direct relationship for this resource pair.
+- ❌ **Not Directly Supported** – No direct relationship API exists, but the relationship can be established indirectly through another supported resource.
+
+### Notes
+
+#### Data Product ↔ Critical Data Element (CDE)
+
+Microsoft Purview does not currently expose a direct relationship between **Data Products** and **Critical Data Elements (CDEs)**.
+
+However, the relationship can be established indirectly through the Data Map:
+
+1. Associate the **Critical Data Element** with a **Data Asset** or **Data Column**.
+2. Associate the same **Data Asset** with a **Data Product**.
+3. Microsoft Purview automatically displays the related CDE under the corresponding Data Product in the Unified Catalog.
+
+The visual relationship is inferred by Microsoft Purview based on the shared Data Asset or Data Column rather than being created through a direct relationship API.
+
+```text
+Critical Data Element
+        │
+        ▼
+Data Asset / Data Column
+        │
+        ▼
+Data Product
+```
+
+Therefore, although **Data Product ↔ CDE** is marked as **Not Directly Supported**, the relationship can still appear in the Unified Catalog through the intermediate Data Asset or Data Column.
+
+#### Data Column → Critical Data Element (CDE)
+
+This relationship is expected to be supported but still requires additional validation.
 ---
 
 ## Policies
