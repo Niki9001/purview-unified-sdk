@@ -115,10 +115,45 @@ Example:
 ```text
 PURVIEW_TENANT_ID=12345678-1234-1234-1234-123456789abc
 PURVIEW_USERNAME=john.smith@contoso.com
+PURVIEW_DATA_PRODUCT_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+PURVIEW_DATA_ASSET_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+PURVIEW_GLOSSARY_TERM_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+PURVIEW_DATA_PRODUCT_OWNER_ID = xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+PURVIEW_DOMAIN_ID = xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ---
+## Token Caching
 
+By default, the SDK does not configure a persistent authentication token cache.
+
+As a result, depending on the authentication flow, you may be prompted to sign in again when starting a new application session.
+
+For production applications, configuring a persistent token cache is recommended to reduce repeated authentication prompts and improve the user experience.
+
+The Microsoft Authentication Library provides several options for implementing persistent token caching. One common approach is to use the `msal-extensions` package.
+
+Example:
+
+```python
+import msal
+from msal_extensions import (
+    FilePersistence,
+    PersistedTokenCache,
+)
+
+persistence = FilePersistence("token_cache.bin")
+cache = PersistedTokenCache(persistence)
+
+app = msal.PublicClientApplication(
+    client_id=CLIENT_ID,
+    authority=AUTHORITY,
+    token_cache=cache,
+)
+```
+
+The SDK can then be configured to use the `PublicClientApplication` instance or its token cache, depending on your application's authentication architecture.
+```
 ## First-Time Authentication
 
 The first time the SDK is used, you may be prompted to sign in to your Microsoft account.
