@@ -1,5 +1,8 @@
 site_name: Purview Unified SDK
 
+
+site_url: https://niki9001.github.io/purview-unified-sdk/
+
 site_description: >
   Python SDK documentation for Microsoft Purview Unified Catalog.
 

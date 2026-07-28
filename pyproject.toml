@@ -2,17 +2,53 @@
 requires = ["setuptools>=65"]
 build-backend = "setuptools.build_meta"
 
+
 [project]
 name = "purview-unified-sdk"
-version = "0.1.1"
-description = "A Python SDK for Microsoft Purview Unified Catalog"
+version = "0.1.2"
+
+description = "Community Python SDK for Microsoft Purview Unified Catalog APIs and data governance automation"
+
 readme = "README.md"
 requires-python = ">=3.10"
+
+authors = [
+    { name = "Xiaoning (Niki) Zheng" },
+]
+
+keywords = [
+    "microsoft-purview",
+    "purview",
+    "unified-catalog",
+    "python-sdk",
+    "data-governance",
+    "data-catalog",
+    "data-quality",
+    "metadata-management",
+    "automation",
+    "azure",
+]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Database",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 
 dependencies = [
     "azure-core",
     "azure-identity",
 ]
+
 
 [project.optional-dependencies]
 examples = [
@@ -32,8 +68,18 @@ dev = [
     "mkdocs-git-revision-date-localized-plugin",
 ]
 
+
+[project.urls]
+Homepage = "https://niki9001.github.io/purview-unified-sdk/"
+Documentation = "https://niki9001.github.io/purview-unified-sdk/"
+Repository = "https://github.com/Niki9001/purview-unified-sdk"
+Issues = "https://github.com/Niki9001/purview-unified-sdk/issues"
+Changelog = "https://github.com/Niki9001/purview-unified-sdk/releases"
+
+
 [tool.setuptools]
-package-dir = {"" = "src"}
+package-dir = { "" = "src" }
+
 
 [tool.setuptools.packages.find]
 where = ["src"]
