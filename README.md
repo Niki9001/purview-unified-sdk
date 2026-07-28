@@ -43,7 +43,113 @@ Before using the SDK, ensure you have:
 
 # Authentication
 
-The SDK authenticates using your Microsoft account.
+The SDK authenticates users through Microsoft Entra ID (formerly Azure Active Directory).
+
+Authentication requires two pieces of information:
+
+- **Tenant ID**
+- **Username**
+
+The SDK will use your Microsoft account to acquire an access token for Microsoft Purview.
+
+---
+
+## Tenant ID
+
+The Tenant ID identifies your Microsoft Entra organization.
+
+It is typically a GUID, for example:
+
+```text
+12345678-1234-1234-1234-123456789abc
+```
+
+You can obtain the Tenant ID from:
+
+- Azure Portal → Microsoft Entra ID → Overview
+- Your organization's Azure administrator
+
+---
+
+## Username
+
+The username should be the Microsoft account used to access Microsoft Purview.
+
+For most enterprise users, this is your corporate email address, for example:
+
+```text
+john.smith@contoso.com
+```
+
+Some organizations may use a User Principal Name (UPN) that is different from the user's email address. In that case, use the UPN assigned by your Microsoft Entra administrator.
+
+---
+
+## Example
+
+```python
+import os
+
+from purview import PurviewClient, PurviewConfig
+
+config = PurviewConfig(
+    tenant_id=os.environ["PURVIEW_TENANT_ID"],
+)
+
+with PurviewClient(
+    config,
+    username=os.environ["PURVIEW_USERNAME"],
+) as client:
+
+    domains = client.domains.list_all()
+```
+
+---
+
+## Environment Variables
+
+The SDK recommends storing credentials in environment variables.
+
+Example:
+
+```text
+PURVIEW_TENANT_ID=12345678-1234-1234-1234-123456789abc
+PURVIEW_USERNAME=john.smith@contoso.com
+```
+
+---
+
+## First-Time Authentication
+
+The first time the SDK is used, you may be prompted to sign in to your Microsoft account.
+
+After successful authentication, the authentication token is securely cached by the Microsoft Authentication Library (MSAL). Future SDK sessions can typically reuse the cached token without requiring you to sign in again until the token expires or is revoked.
+
+---
+
+## Multi-Tenant Organizations
+
+If your Microsoft account belongs to multiple organizations (tenants), ensure that the Tenant ID supplied to the SDK matches the Microsoft Purview instance you intend to access.
+
+Using an incorrect Tenant ID may result in authentication failures or authorization errors.
+
+---
+
+## Common Authentication Errors
+
+### Invalid Tenant ID
+
+Verify that the Tenant ID is correct and that your account belongs to the specified Microsoft Entra tenant.
+
+### Invalid Username
+
+Verify that the username matches the Microsoft account (typically your corporate email or assigned UPN) used to access Microsoft Purview.
+
+### Permission Denied
+
+Authentication may succeed even if authorization fails.
+
+Ensure that your account has the required Microsoft Purview permissions for the requested operation.
 
 ## Using environment variables
 
