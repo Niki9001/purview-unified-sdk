@@ -340,6 +340,40 @@ Typical operations:
 
 ---
 
+
+## Policies
+
+Supported operations include:
+
+- List policies
+- Retrieve policy details
+
+---
+
+## Objectives
+
+Typical operations:
+
+- Create
+- Retrieve
+- List
+- Update
+- Delete
+
+---
+
+## Key Results
+
+Typical operations:
+
+- Create
+- Retrieve
+- List
+- Update
+- Delete
+
+---
+
 ## Relationship Support and Validation
 
 The table below summarizes the relationship types currently reviewed during SDK development, including whether the relationship is documented by Microsoft and whether it has been validated through SDK testing.
@@ -402,39 +436,6 @@ Therefore, although **Data Product ↔ CDE** is marked as **Not Directly Support
 
 ---
 
-## Policies
-
-Supported operations include:
-
-- List policies
-- Retrieve policy details
-
----
-
-## Objectives
-
-Typical operations:
-
-- Create
-- Retrieve
-- List
-- Update
-- Delete
-
----
-
-## Key Results
-
-Typical operations:
-
-- Create
-- Retrieve
-- List
-- Update
-- Delete
-
----
-
 ## Data Quality
 
 Data Quality APIs supported by the SDK.
@@ -443,20 +444,80 @@ Data Quality APIs supported by the SDK.
 
 # Examples
 
-Example scripts are included with the SDK.
+The SDK includes a comprehensive set of example scripts demonstrating common Microsoft Purview Unified Catalog operations.
 
-They demonstrate common scenarios, including:
+The examples are organized by resource type.
 
-- Creating Business Domains
-- Managing Data Products
-- Updating Data Assets
-- Creating Glossary Terms
-- Managing Relationships
-- Working with Objectives
-- Working with Key Results
-- Listing Policies
-- Data Quality operations
+### Business Domains
 
+- Create a Business Domain
+- Update a Business Domain
+- Delete a Business Domain
+- List Business Domains
+
+### Data Products
+
+Examples include:
+
+- Create a Data Product
+- Update a Data Product
+- Delete a Data Product
+- List Data Products
+- Navigate a Data Product
+- List Data Product Relationships
+
+### Glossary Terms
+
+- Create a Glossary Term
+- Update a Glossary Term
+- Delete a Glossary Term
+- List Glossary Terms
+
+### Critical Data Elements (CDEs)
+
+- Create a CDE
+- Update a CDE
+- Delete a CDE
+- List CDEs
+
+### Objectives and Key Results (OKRs)
+
+- Create an Objective
+- Update an Objective
+- Delete an Objective
+
+### Relationships
+
+Relationship examples include:
+
+- Data Product → Business Domain
+- Data Product → Data Asset
+- Data Product → Glossary Term
+- Data Product → Objective
+- Glossary Term → Data Asset
+- Glossary Term → Data Column
+- Glossary Term → Critical Data Element (CDE)
+- Critical Data Element → Data Column
+- Data Asset → Data Product
+- Data Column → Data Asset
+
+### Properties
+
+Examples for retrieving Microsoft Purview resources include:
+
+- Get Data Asset
+- List Business Domains
+- List Data Products
+- List Glossary Terms
+- List Critical Data Elements (CDEs)
+- List Policies
+- List Data Product Relationships
+
+### Policies
+
+- List Policies
+
+More examples will be added as additional SDK features become available.
 ---
 
 # Error Handling
