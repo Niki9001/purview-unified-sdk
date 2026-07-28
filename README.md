@@ -127,13 +127,13 @@ PURVIEW_DOMAIN_ID = xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 By default, the SDK does not configure a persistent authentication token cache.
 
-As a result, depending on the authentication flow, you may be prompted to sign in again when starting a new application session.
+As a result, you may be prompted to sign in again when starting a new application session.
 
 For production applications, configuring a persistent token cache is recommended to reduce repeated authentication prompts and improve the user experience.
 
-The Microsoft Authentication Library provides several options for implementing persistent token caching. One common approach is to use the `msal-extensions` package.
+The Microsoft Authentication Library (MSAL) supports persistent token caching through several mechanisms. One common approach is to use the `msal-extensions` package.
 
-Example:
+### Example
 
 ```python
 import msal
@@ -143,6 +143,7 @@ from msal_extensions import (
 )
 
 persistence = FilePersistence("token_cache.bin")
+
 cache = PersistedTokenCache(persistence)
 
 app = msal.PublicClientApplication(
@@ -152,24 +153,39 @@ app = msal.PublicClientApplication(
 )
 ```
 
-The SDK can then be configured to use the `PublicClientApplication` instance or its token cache, depending on your application's authentication architecture.
-```
+After a successful sign-in, the authentication token is securely stored in the persistent cache. Future application sessions can typically reuse the cached token until it expires or is revoked, reducing the need for repeated authentication.
+
 ---
+
 ## First-Time Authentication
 
-The first time the SDK is used, you may be prompted to sign in to your Microsoft account.
+The first time the SDK requires authentication, you will be prompted to sign in with your Microsoft account.
 
-After successful authentication, the authentication token is securely cached by the Microsoft Authentication Library (MSAL). Future SDK sessions can typically reuse the cached token without requiring you to sign in again until the token expires or is revoked.
+For most enterprise users, the Microsoft account is the corporate email address or User Principal Name (UPN) associated with the organization's Microsoft Entra ID tenant.
+
+For example:
+
+```text
+john.smith@contoso.com
+```
+
+If a persistent token cache has been configured, future SDK sessions can typically reuse the cached authentication token without requiring you to sign in again until the token expires or is revoked.
+
+If persistent token caching is not configured, you may be prompted to authenticate each time a new application session starts.
 
 ---
 
 ## Multi-Tenant Organizations
 
-If your Microsoft account belongs to multiple organizations (tenants), ensure that the Tenant ID supplied to the SDK matches the Microsoft Purview instance you intend to access.
+Some Microsoft accounts are associated with multiple Microsoft Entra ID tenants.
 
-Using an incorrect Tenant ID may result in authentication failures or authorization errors.
+If your account belongs to multiple tenants, ensure that the Tenant ID specified in `PurviewConfig` matches the Microsoft Purview instance that you intend to access.
 
----
+Using an incorrect Tenant ID may result in:
+
+- Authentication failures
+- Authorization errors
+- Accessing the wrong Microsoft Purview tenant
 
 ## Common Authentication Errors
 
