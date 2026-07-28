@@ -10,7 +10,7 @@ from purview import PurviewClient, PurviewConfig
 load_dotenv()
 
 
-DOMAIN_ID = "c51be2b8-9db4-462a-ad1c-1bc29d1f735a"
+DOMAIN_ID = "f8ae8834-8f07-46cb-8ef3-b1cd67875233"
 
 
 def main() -> None:

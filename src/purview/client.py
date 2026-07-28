@@ -2,25 +2,46 @@ from __future__ import annotations
 
 from typing import Any
 
+from azure.core.credentials import (
+    TokenCredential,
+)
+
 from purview.auth import PurviewAuthenticator
 from purview.config import PurviewConfig
 from purview.http_client import PurviewHttpClient
 
-from purview.resources.business_domains import BusinessDomainsClient
-from purview.resources.glossary_terms import GlossaryTermsClient
-from purview.resources.cdes import CriticalDataElementsClient
-from purview.resources.data_products import DataProductsClient
-from purview.resources.relationships import RelationshipsClient
-from purview.resources.data_assets import DataAssetsClient
+from purview.resources.business_domains import (
+    BusinessDomainsClient,
+)
+from purview.resources.glossary_terms import (
+    GlossaryTermsClient,
+)
+from purview.resources.cdes import (
+    CriticalDataElementsClient,
+)
+from purview.resources.data_products import (
+    DataProductsClient,
+)
+from purview.resources.relationships import (
+    RelationshipsClient,
+)
+from purview.resources.data_assets import (
+    DataAssetsClient,
+)
 from purview.navigator import PurviewNavigator
 from purview.resources.okrs import OkrsClient
 from purview.resources.policies import (
     PoliciesClient,
 )
 
+
 class PurviewClient:
     """
     Main client for interacting with Microsoft Purview APIs.
+
+    By default, interactive browser authentication is used.
+
+    A custom Azure TokenCredential may also be supplied.
     """
 
     def __init__(
@@ -28,12 +49,14 @@ class PurviewClient:
         config: PurviewConfig,
         *,
         username: str | None = None,
+        credential: TokenCredential | None = None,
     ) -> None:
         self.config = config
 
         self.authenticator = PurviewAuthenticator(
             tenant_id=config.tenant_id,
             username=username,
+            credential=credential,
         )
 
         self.http = PurviewHttpClient(
@@ -41,14 +64,18 @@ class PurviewClient:
             authenticator=self.authenticator,
         )
 
-        self.business_domains = BusinessDomainsClient(
-            http_client=self.http,
+        self.business_domains = (
+            BusinessDomainsClient(
+                http_client=self.http,
+            )
         )
-        
-        self.glossary_terms = GlossaryTermsClient(
-            http_client=self.http,
+
+        self.glossary_terms = (
+            GlossaryTermsClient(
+                http_client=self.http,
+            )
         )
-        
+
         self.cdes = CriticalDataElementsClient(
             http_client=self.http,
         )
@@ -56,21 +83,23 @@ class PurviewClient:
         self.okrs = OkrsClient(
             http_client=self.http,
         )
-        
+
         self.data_products = DataProductsClient(
             http_client=self.http,
         )
-        
+
         self.relationships = RelationshipsClient(
             http_client=self.http,
         )
-        
+
         self.data_assets = DataAssetsClient(
             http_client=self.http,
         )
-        
+
         self.navigator = PurviewNavigator(
-            relationships_client=self.relationships,
+            relationships_client=(
+                self.relationships
+            ),
             data_assets_client=self.data_assets,
         )
 
@@ -95,7 +124,9 @@ class PurviewClient:
         """
         Acquire a Purview access token.
         """
-        return self.authenticator.get_access_token()
+        return (
+            self.authenticator.get_access_token()
+        )
 
     def get(
         self,
@@ -116,7 +147,11 @@ class PurviewClient:
         path: str,
         *,
         params: dict[str, Any] | None = None,
-        json: dict[str, Any] | list[Any] | None = None,
+        json: (
+            dict[str, Any]
+            | list[Any]
+            | None
+        ) = None,
     ) -> Any:
         """
         Send an authenticated POST request.
@@ -132,7 +167,11 @@ class PurviewClient:
         path: str,
         *,
         params: dict[str, Any] | None = None,
-        json: dict[str, Any] | list[Any] | None = None,
+        json: (
+            dict[str, Any]
+            | list[Any]
+            | None
+        ) = None,
     ) -> Any:
         """
         Send an authenticated PATCH request.
@@ -142,13 +181,17 @@ class PurviewClient:
             params=params,
             json=json,
         )
-    
+
     def put(
         self,
         path: str,
         *,
         params: dict[str, Any] | None = None,
-        json: dict[str, Any] | list[Any] | None = None,
+        json: (
+            dict[str, Any]
+            | list[Any]
+            | None
+        ) = None,
     ) -> Any:
         """
         Send an authenticated PUT request.
@@ -175,9 +218,10 @@ class PurviewClient:
 
     def close(self) -> None:
         """
-        Close the underlying HTTP session.
+        Close the HTTP session and Azure credential.
         """
         self.http.close()
+        self.authenticator.close()
 
     def __enter__(self) -> PurviewClient:
         """
@@ -192,6 +236,6 @@ class PurviewClient:
         traceback: object,
     ) -> None:
         """
-        Automatically close the HTTP session.
+        Automatically close the client.
         """
         self.close()

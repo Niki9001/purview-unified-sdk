@@ -11,7 +11,7 @@ load_dotenv()
 
 
 DOMAIN_ID = (
-    "4eca5da2-36b1-4444-951d-c75d1ec0580f"
+    "f8ae8834-8f07-46cb-8ef3-b1cd67875233"
 )
 
 NEW_DOMAIN_NAME = (

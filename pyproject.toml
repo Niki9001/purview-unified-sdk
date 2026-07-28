@@ -4,10 +4,33 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "purview-unified-sdk"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Python SDK for Microsoft Purview Unified Catalog"
 readme = "README.md"
 requires-python = ">=3.10"
+
+dependencies = [
+    "azure-core",
+    "azure-identity",
+]
+
+[project.optional-dependencies]
+examples = [
+    "python-dotenv",
+]
+
+docs = [
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocs-git-revision-date-localized-plugin",
+]
+
+dev = [
+    "python-dotenv",
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocs-git-revision-date-localized-plugin",
+]
 
 [tool.setuptools]
 package-dir = {"" = "src"}

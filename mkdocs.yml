@@ -1,0 +1,65 @@
+site_name: Purview Unified SDK
+
+site_description: >
+  Python SDK documentation for Microsoft Purview Unified Catalog.
+
+site_author: Xiaoning (Niki) Zheng
+
+repo_name: Niki9001/purview-unified-sdk
+repo_url: https://github.com/Niki9001/purview-unified-sdk
+
+theme:
+  name: material
+  language: en
+
+  icon:
+    repo: fontawesome/brands/github
+
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+
+plugins:
+  - search
+  - git-revision-date-localized
+  
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+nav:
+  - Home: index.md
+
+  - Concepts:
+      - Microsoft Purview Overview: concepts/index.md
+      - Resource Model: concepts/resources.md
+
+  - Getting Started: 
+      - Overview: getting_started/index.md
+      - Installation: getting_started/installation.md
+      - Authentication: getting_started/authentication.md
+      - Configuration: getting_started/configuration.md
+      - Quick Start: getting_started/quickstart.md
+
+  - User Guide:
+      - Business Domains: user_guide/business_domains.md
+      - Data Products: user_guide/data_products.md
+      - Glossary Terms: user_guide/glossary_terms.md
+      - Critical Data Elements (CDEs): user_guide/cdes.md
+      - Objectives and Key Results (OKRs): user_guide/okrs.md
+      - Policies: user_guide/policies.md
+      - Data Map: user_guide/datamap.md
+      - Relationships: user_guide/relationships.md
+
+  - API Reference:
+      - Purview Client: api_reference/purview_client.md
+      - Relationship Matrix: api_reference/relationship_matrix.md
+

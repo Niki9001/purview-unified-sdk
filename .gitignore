@@ -40,3 +40,6 @@ htmlcov/
 # Operating system
 .DS_Store
 Thumbs.db
+
+# Docs
+site/
