@@ -400,7 +400,6 @@ Therefore, although **Data Product ↔ CDE** is marked as **Not Directly Support
 
 #### Data Column → Critical Data Element (CDE)
 
-This relationship is expected to be supported but still requires additional validation.
 ---
 
 ## Policies
