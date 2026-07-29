@@ -579,4 +579,4 @@ Refer to the SDK documentation and example scripts for detailed usage of each re
 
 # License
 
-This project is licensed under the applicable project license.
+This project is released under the MIT License.
