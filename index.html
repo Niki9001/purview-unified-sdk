@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Python SDK documentation for Microsoft Purview Unified Catalog.
+        <meta name="description" content="Python SDK for Microsoft Purview Unified Catalog. Automate Business Domains, Data Products, Glossary Terms, Critical Data Elements, relationships, policies, OKRs, and Data Map operations.
 ">
       
       
@@ -285,6 +285,45 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-purview-unified-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Purview Unified SDK?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Purview Unified SDK?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#currently-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Currently Supported
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#installation" class="md-nav__link">
@@ -1146,6 +1185,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#why-purview-unified-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Purview Unified SDK?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Purview Unified SDK?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#currently-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Currently Supported
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1279,10 +1357,39 @@
 
 
 <h1 id="purview-unified-sdk">Purview Unified SDK</h1>
-<p>A Python SDK for working with Microsoft Purview Unified Catalog APIs.</p>
-<p>Use the SDK to retrieve, create, update, delete, and connect supported Microsoft Purview governance resources through a consistent Python interface.</p>
+<p><strong>Purview Unified SDK</strong> is a Python SDK for Microsoft Purview Unified Catalog.</p>
+<p>It provides a simple and consistent Python interface for automating Microsoft Purview operations, including Business Domains, Data Products, Glossary Terms, Critical Data Elements (CDEs), Data Assets, Data Columns, Policies, Objectives and Key Results (OKRs), and resource relationships.</p>
+<p>Whether you're building governance automation, migrating metadata, or integrating Microsoft Purview into your own applications, the SDK helps you work with the Unified Catalog through clean, reusable Python code.</p>
+<h2 id="why-purview-unified-sdk">Why Purview Unified SDK?</h2>
+<p>Building automation with the Microsoft Purview REST APIs often requires handling authentication, pagination, request formatting, resource relationships, and other API-specific details before you can focus on your actual governance tasks.</p>
+<p>Purview Unified SDK abstracts these complexities behind a clean, consistent, and Pythonic interface, allowing you to spend less time writing infrastructure code and more time automating Microsoft Purview.</p>
+<h3 id="key-features">Key Features</h3>
+<ul>
+<li>✅ Unified programming model across multiple Microsoft Purview resource types</li>
+<li>✅ Simple and intuitive Python APIs for common governance operations</li>
+<li>✅ Built-in authentication support</li>
+<li>✅ Automatic pagination for list operations</li>
+<li>✅ Consistent relationship management across supported resources</li>
+<li>✅ Strongly typed resource models</li>
+<li>✅ Comprehensive documentation and runnable examples</li>
+<li>✅ Designed for governance automation, reporting, and system migration workflows</li>
+</ul>
+<h3 id="currently-supported">Currently Supported</h3>
+<ul>
+<li>Business Domains</li>
+<li>Data Products</li>
+<li>Glossary Terms</li>
+<li>Critical Data Elements (CDEs)</li>
+<li>Data Assets</li>
+<li>Data Columns</li>
+<li>Objectives and Key Results (OKRs)</li>
+<li>Policies</li>
+<li>Resource Relationships</li>
+<li>Data Map</li>
+</ul>
+<p>Unlike scripts that target a single endpoint, Purview Unified SDK provides a unified programming model across multiple Microsoft Purview resource types, making it easier to build automation workflows that span the entire Unified Catalog.</p>
 <p><a class="md-button md-button--primary" href="getting_started/">Get started</a>
-<a class="md-button" href="user_guide/user_guide_overview/">View the user guide</a>
+<a class="md-button" href="user_guide/business_domains/">View the user guide</a>
 <a class="md-button" href="api_reference/purview_client/">Browse the API reference</a></p>
 <hr />
 <h2 id="installation">Installation</h2>
@@ -1317,37 +1424,31 @@
 <div class="grid cards">
 <ul>
 <li>
-<p>:material-rocket-launch-outline:{ .lg .middle } <strong>Getting Started</strong></p>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m13.13 22.19-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27zM5.64 12.5l-3.83-1.63 6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05.17 1.39-.02 4.25-3.3 7.53-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93-2.19 2.19-3.5 4.6-4.35 6.71-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83s-2.05.78-2.83 0m-5.66 7.07-1.41-1.41zM6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22zM2 22h1.41l4.77-4.76-1.42-1.41L2 20.59zm0-2.83 4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76z"/></svg></span> <strong>Getting Started</strong></p>
 <hr />
 <p>Install the SDK, configure authentication, and run your first Microsoft Purview request.</p>
 <p><a href="getting_started/installation/">Get started</a></p>
 </li>
 <li>
-<p>:material-book-open-page-variant-outline:{ .lg .middle } <strong>User Guide</strong></p>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 1-5 5v11l5-4.5zm2 4v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1M10 18.41C8.75 18.09 7.5 18 6.5 18c-1.06 0-2.32.19-3.5.5V7.13c.91-.4 2.14-.63 3.5-.63s2.59.23 3.5.63z"/></svg></span> <strong>User Guide</strong></p>
 <hr />
 <p>Learn how to work with Business Domains, Data Products, Glossary Terms, CDEs, Data Assets, Data Columns, OKRs, Policies, and Relationships.</p>
 <p><a href="user_guide/business_domains/">Open the user guide</a></p>
 </li>
 <li>
-<p>:material-link-variant:{ .lg .middle } <strong>Relationships</strong></p>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></svg></span> <strong>Relationships</strong></p>
 <hr />
 <p>Understand supported Microsoft Purview relationships, directionality, indirect associations, and validation status.</p>
-<p><a href="concepts/relationships.md">Explore relationships</a></p>
+<p><a href="user_guide/relationships/">Explore relationships</a></p>
 </li>
 <li>
-<p>:material-school-outline:{ .lg .middle } <strong>Tutorials</strong></p>
-<hr />
-<p>Follow complete workflows that combine multiple Microsoft Purview resources and SDK operations.</p>
-<p><a href="tutorials/first_workflow.md">View tutorials</a></p>
-</li>
-<li>
-<p>:material-api:{ .lg .middle } <strong>API Reference</strong></p>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 7H5a2 2 0 0 0-2 2v8h2v-4h2v4h2V9a2 2 0 0 0-2-2m0 4H5V9h2m7-2h-4v10h2v-4h2a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2m0 4h-2V9h2m6 0v6h1v2h-4v-2h1V9h-1V7h4v2Z"/></svg></span> <strong>API Reference</strong></p>
 <hr />
 <p>Review SDK clients, methods, parameters, return types, and model objects.</p>
 <p><a href="api_reference/purview_client/">Browse the API reference</a></p>
 </li>
 <li>
-<p>:material-github:{ .lg .middle } <strong>Examples</strong></p>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg></span> <strong>Examples</strong></p>
 <hr />
 <p>Explore runnable Python examples included in the repository.</p>
 <p><a href="https://github.com/Niki9001/purview-unified-sdk/tree/main/examples">View examples on GitHub</a></p>
@@ -1420,7 +1521,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 28, 2026 17:38:24 UTC">July 28, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 29, 2026 13:41:56 UTC">July 29, 2026</span>
   </span>
 
     
