@@ -1,11 +1,45 @@
 # Purview Unified SDK
 
-A Python SDK for working with Microsoft Purview Unified Catalog APIs.
+**Purview Unified SDK** is a Python SDK for Microsoft Purview Unified Catalog.
 
-Use the SDK to retrieve, create, update, delete, and connect supported Microsoft Purview governance resources through a consistent Python interface.
+It provides a simple and consistent Python interface for automating Microsoft Purview operations, including Business Domains, Data Products, Glossary Terms, Critical Data Elements (CDEs), Data Assets, Data Columns, Policies, Objectives and Key Results (OKRs), and resource relationships.
+
+Whether you're building governance automation, migrating metadata, or integrating Microsoft Purview into your own applications, the SDK helps you work with the Unified Catalog through clean, reusable Python code.
+
+## Why Purview Unified SDK?
+
+Building automation with the Microsoft Purview REST APIs often requires handling authentication, pagination, request formatting, resource relationships, and other API-specific details before you can focus on your actual governance tasks.
+
+Purview Unified SDK abstracts these complexities behind a clean, consistent, and Pythonic interface, allowing you to spend less time writing infrastructure code and more time automating Microsoft Purview.
+
+### Key Features
+
+- ✅ Unified programming model across multiple Microsoft Purview resource types
+- ✅ Simple and intuitive Python APIs for common governance operations
+- ✅ Built-in authentication support
+- ✅ Automatic pagination for list operations
+- ✅ Consistent relationship management across supported resources
+- ✅ Strongly typed resource models
+- ✅ Comprehensive documentation and runnable examples
+- ✅ Designed for governance automation, reporting, and system migration workflows
+
+### Currently Supported
+
+- Business Domains
+- Data Products
+- Glossary Terms
+- Critical Data Elements (CDEs)
+- Data Assets
+- Data Columns
+- Objectives and Key Results (OKRs)
+- Policies
+- Resource Relationships
+- Data Map
+
+Unlike scripts that target a single endpoint, Purview Unified SDK provides a unified programming model across multiple Microsoft Purview resource types, making it easier to build automation workflows that span the entire Unified Catalog.
 
 [Get started](getting_started/index.md){ .md-button .md-button--primary }
-[View the user guide](user_guide/user_guide_overview.md){ .md-button }
+[View the user guide](user_guide/business_domains.md){ .md-button }
 [Browse the API reference](api_reference/purview_client.md){ .md-button }
 
 ---
@@ -77,15 +111,8 @@ for domain in domains:
 
     Understand supported Microsoft Purview relationships, directionality, indirect associations, and validation status.
 
-    [Explore relationships](concepts/relationships.md)
+    [Explore relationships](user_guide/relationships.md)
 
--   :material-school-outline:{ .lg .middle } **Tutorials**
-
-    ---
-
-    Follow complete workflows that combine multiple Microsoft Purview resources and SDK operations.
-
-    [View tutorials](tutorials/first_workflow.md)
 
 -   :material-api:{ .lg .middle } **API Reference**
 

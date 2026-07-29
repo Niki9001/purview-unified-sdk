@@ -4,7 +4,9 @@ site_name: Purview Unified SDK
 site_url: https://niki9001.github.io/purview-unified-sdk/
 
 site_description: >
-  Python SDK documentation for Microsoft Purview Unified Catalog.
+  Python SDK for Microsoft Purview Unified Catalog.
+  Automate Business Domains, Data Products, Glossary Terms, Critical Data
+  Elements, relationships, policies, OKRs, and Data Map operations.
 
 site_author: Xiaoning (Niki) Zheng
 
@@ -37,6 +39,9 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 nav:
   - Home: index.md
