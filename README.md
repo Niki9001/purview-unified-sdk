@@ -3,7 +3,7 @@ The Microsoft Purview Unified Catalog Python SDK provides a Pythonic interface f
 Based on Microsoft Purview API Version 2026-03-20-preview
 
 [![PyPI](https://img.shields.io/pypi/v/purview-unified-sdk)](https://pypi.org/project/purview-unified-sdk/)
-[![Python](https://img.shields.io/pypi/pyversions/purview-unified-sdk)](https://pypi.org/project/purview-unified-sdk/)
+[![Python](https://img.shields.io/pypi/pyversions/purview-unified-sdk?cacheSeconds=3600)](https://pypi.org/project/purview-unified-sdk/)
 [![Documentation](https://img.shields.io/badge/docs-online-blue)](https://niki9001.github.io/purview-unified-sdk/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
