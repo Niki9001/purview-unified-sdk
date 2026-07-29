@@ -19,6 +19,7 @@ Based on Microsoft Purview API Version 2026-03-20-preview
 
 ```bash
 pip install purview-unified-sdk
+```
 
 Verify the installation:
 
@@ -27,8 +28,6 @@ from purview import PurviewClient, PurviewConfig
 
 print(PurviewClient)
 ```
-
----
 
 # Prerequisites
 
