@@ -408,7 +408,7 @@ The table below summarizes the relationship types currently reviewed during SDK 
 - ✅ **Validated** – The relationship has been successfully tested using the SDK.
 - ⏳ **Pending Validation** – The relationship is documented or expected to be supported but has not yet been fully validated.
 - ❌ **Not Supported** – Microsoft Purview does not provide a supported direct relationship for this resource pair.
-- ❌ **Not Directly Supported** – No direct relationship API exists, but the relationship can be established indirectly through another supported resource.
+- 🔑 **Via Glossary Terms** – No direct relationship API exists, but the relationship can be established indirectly through glossary terms.
 
 ### Notes
 
