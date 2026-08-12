@@ -388,14 +388,14 @@ The table below summarizes the relationship types currently reviewed during SDK 
 | | Data Asset | ✅ | ✅ |
 | | Objective | ✅ | ✅ |
 | | File | ✅ | ✅ |
-| | Critical Data Element (CDE) | ❌ | ❌ (Not directly supported) |
-| | Data Column | ❌ | ❌ |
+| | Critical Data Element (CDE) | ❌ | 🔑 (Via Glossary Terms) |
+| | Data Column | ❌ | 🔑(Via Glossary Terms) |
 | **Glossary Term** | Data Asset | ✅ | ✅ |
 | | Data Column | ✅ | ✅ |
 | | Critical Data Element (CDE) | ✅ | ✅ |
 | **Critical Data Element (CDE)** | Glossary Term | ✅ | ✅ |
 | | Data Column | ✅ | ✅ |
-| | Data Product | ❌ | ❌ (Not directly supported) |
+| | Data Product | ❌ | 🔑 (Via Glossary Terms) |
 | **Data Asset** | Data Product | ✅ | ✅ |
 | | Glossary Term | ✅ | ✅ |
 | | Data Column | ✅ | ✅ |
